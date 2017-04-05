@@ -38,7 +38,30 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion{
+    
+    if (self.childViewControllers.count > 0) {
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"取消" forState:UIControlStateNormal];
+        //        [button setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
+        //        [button setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
+        button.lh_Size = CGSizeMake(70, 30);
+        
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+        button.contentEdgeInsets = UIEdgeInsetsMake(0, -12, 0, 0);
+        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [button addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
+        viewControllerToPresent.hidesBottomBarWhenPushed = YES;
+        viewControllerToPresent.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    }
+    
+    [super presentViewController:viewControllerToPresent animated:flag completion:nil];
+}
+
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    
     if (self.childViewControllers.count > 0) {
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -57,6 +80,13 @@
     }
     
     [super pushViewController:viewController animated:animated];
+}
+
+
+
+- (void)cancel{
+
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)back{

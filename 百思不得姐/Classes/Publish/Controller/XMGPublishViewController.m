@@ -12,9 +12,19 @@
 #import "CZDownloadViewController.h"
 #import "XMGNavigationController.h"
 #import "XMGPostWordViewController.h"
+#import "XMGPostPictureViewController.h"
+#import "TZImagePickerController.h"
+#import "LHImagePickerController.h"
+#import "HX_AlbumViewController.h"
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#define MaxPictureCount 9
+#define ColumnNumber    3
+
 static CGFloat const XMGAnimationDelay = 0.1;
 static CGFloat const XMGSpringFactor = 10;
-@interface XMGPublishViewController ()
+@interface XMGPublishViewController ()<TZImagePickerControllerDelegate>
 
 @end
 
@@ -91,10 +101,12 @@ static CGFloat const XMGSpringFactor = 10;
         if (button.tag == 0) {
              XMGLog(@"发视频");
             
-            
+            [self pushImagePickerController:NO video:YES];
         }else if (button.tag == 1) {
         
             XMGLog(@"发图片");
+            
+            [self presentLHImagePickerController];
         }else if (button.tag == 2) {
             
             XMGLog(@"发段子");
@@ -119,6 +131,82 @@ static CGFloat const XMGSpringFactor = 10;
             [navVc pushViewController:downloadVc animated:YES];
         }
     }];
+}
+
+#pragma mark - LHImagePickerController
+- (void)presentLHImagePickerController{
+
+    HX_AlbumViewController *pickerVc = [[HX_AlbumViewController alloc] init];
+    pickerVc.maxNum = MaxPictureCount;
+    pickerVc.ifVideo = NO;
+    
+//    LHImagePickerController *pickerVc = [[LHImagePickerController alloc] init];
+    UITabBarController *tabbarVc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *selectedVc = (UIViewController *)tabbarVc.selectedViewController;
+    [selectedVc presentViewController:pickerVc animated:YES completion:nil];
+}
+
+
+#pragma mark - TZImagePickerController
+
+- (void)pushImagePickerController:(BOOL)isPicture video:(BOOL)isVideo{
+    
+    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:MaxPictureCount columnNumber:ColumnNumber delegate:self pushPhotoPickerVc:YES];
+    
+    
+#pragma mark - 四类个性化设置，这些参数都可以不传，此时会走默认设置
+    imagePickerVc.isSelectOriginalPhoto = YES;
+    
+    imagePickerVc.allowTakePicture = YES; // 在内部显示拍照按钮
+    
+    // 2. Set the appearance
+    // 2. 在这里设置imagePickerVc的外观
+    // imagePickerVc.navigationBar.barTintColor = [UIColor greenColor];
+    // imagePickerVc.oKButtonTitleColorDisabled = [UIColor lightGrayColor];
+    // imagePickerVc.oKButtonTitleColorNormal = [UIColor greenColor];
+    // imagePickerVc.navigationBar.translucent = NO;
+    
+    // 3. Set allow picking video & photo & originalPhoto or not
+    // 3. 设置是否可以选择视频/图片/原图
+    imagePickerVc.allowPickingVideo = isVideo;
+    imagePickerVc.allowPickingImage = isPicture;
+    imagePickerVc.allowPickingOriginalPhoto = YES;
+    imagePickerVc.allowPickingGif = NO;
+    
+    // 4. 照片排列按修改时间升序
+    imagePickerVc.sortAscendingByModificationDate = YES;
+    
+    // imagePickerVc.minImagesCount = 3;
+    // imagePickerVc.alwaysEnableDoneBtn = YES;
+    
+    // imagePickerVc.minPhotoWidthSelectable = 3000;
+    // imagePickerVc.minPhotoHeightSelectable = 2000;
+    
+    /// 5. Single selection mode, valid when maxImagesCount = 1
+    /// 5. 单选模式,maxImagesCount为1时才生效
+    imagePickerVc.showSelectBtn = NO;
+    imagePickerVc.allowCrop = NO;
+    imagePickerVc.needCircleCrop = NO;
+    imagePickerVc.circleCropRadius = 100;
+    /*
+     [imagePickerVc setCropViewSettingBlock:^(UIView *cropView) {
+     cropView.layer.borderColor = [UIColor redColor].CGColor;
+     cropView.layer.borderWidth = 2.0;
+     }];*/
+    
+    //imagePickerVc.allowPreview = NO;
+#pragma mark - 到这里为止
+    
+    // You can get the photos by block, the same as by delegate.
+    // 你可以通过block或者代理，来得到用户选择的照片.
+    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        
+    }];
+    UITabBarController *tabBarVc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    XMGNavigationController *navVc = (XMGNavigationController *)tabBarVc.selectedViewController;
+    [navVc presentViewController:imagePickerVc animated:YES completion:nil];
+    
+    
 }
 
 - (void)cancelWithComplentionBlock:(void (^)())completionBlock{

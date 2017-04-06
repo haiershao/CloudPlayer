@@ -62,7 +62,7 @@ static NSString *albumCellId = @"cellId";
     HX_AssetManager *assetManager = [HX_AssetManager sharedManager];
     HX_VideoManager *videoManager = [HX_VideoManager sharedManager];
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     __weak typeof(self) weakSelf = self;
     
     if (!_ifVideo) {
@@ -78,7 +78,7 @@ static NSString *albumCellId = @"cellId";
                 
                 [assetManager.recordPhotos addObject:model];
             }
-            
+    
             weakSelf.allAlbumArray = [NSMutableArray arrayWithArray:allAlbum];
             weakSelf.allImagesAy = [NSMutableArray arrayWithArray:images];
             [weakSelf.tableView reloadData];
@@ -92,6 +92,7 @@ static NSString *albumCellId = @"cellId";
                     vc.allPhotosArray = [weakSelf.allImagesAy lastObject];
                     vc.maxNum = weakSelf.maxNum;
                     vc.cellIndex = weakSelf.allImagesAy.count - 1;
+                    vc.columnNumber = self.columnNumber;
                     [weakSelf.navigationController pushViewController:vc animated:NO];
                 }
             }else {
@@ -103,6 +104,7 @@ static NSString *albumCellId = @"cellId";
                 vc.allPhotosArray = weakSelf.allImagesAy[model.tableViewIndex];
                 vc.maxNum = weakSelf.maxNum;
                 vc.cellIndex = model.tableViewIndex;
+                vc.columnNumber = self.columnNumber;
                 [weakSelf.navigationController pushViewController:vc animated:NO];
             }
             [hud hide:YES];
@@ -128,6 +130,7 @@ static NSString *albumCellId = @"cellId";
                     vc.title = model.albumName;
                     vc.allPhotosArray = [weakSelf.allImagesAy lastObject];
                     vc.maxNum = weakSelf.maxNum;
+                    vc.columnNumber = self.columnNumber;
                     vc.cellIndex = weakSelf.allImagesAy.count - 1;
                     [weakSelf.navigationController pushViewController:vc animated:NO];
                 }
@@ -137,6 +140,7 @@ static NSString *albumCellId = @"cellId";
                 HX_PhotosViewController *vc = [[HX_PhotosViewController alloc] init];
                 vc.ifVideo = self.ifVideo;
                 vc.title = albumModel.albumName;
+                vc.columnNumber = self.columnNumber;
                 vc.allPhotosArray = weakSelf.allImagesAy[model.tableViewIndex];
                 vc.maxNum = weakSelf.maxNum;
                 vc.cellIndex = model.tableViewIndex;
@@ -199,8 +203,8 @@ static NSString *albumCellId = @"cellId";
     self.title = @"相册";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(closeVC)];
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:18/255.0 green:183/255.0 blue:245/255.0 alpha:1]];
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     tableView.delegate = self;
@@ -252,6 +256,7 @@ static NSString *albumCellId = @"cellId";
     vc.maxNum = self.maxNum;
     vc.cellIndex = indexPath.row;
     vc.ifVideo = self.ifVideo;
+    vc.columnNumber = self.columnNumber;
     [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

@@ -12,6 +12,7 @@
 @interface HX_AlbumViewController : UIViewController
 @property (assign, nonatomic) BOOL ifVideo;
 @property (assign, nonatomic) NSInteger maxNum;
+@property (assign, nonatomic) NSInteger columnNumber;
 @end
 
 @interface HX_TableViewCell : UITableViewCell

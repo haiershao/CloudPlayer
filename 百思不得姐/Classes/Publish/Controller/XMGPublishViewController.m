@@ -16,6 +16,7 @@
 #import "TZImagePickerController.h"
 #import "LHImagePickerController.h"
 #import "HX_AlbumViewController.h"
+#import "HX_PhotosViewController.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -139,11 +140,13 @@ static CGFloat const XMGSpringFactor = 10;
     HX_AlbumViewController *pickerVc = [[HX_AlbumViewController alloc] init];
     pickerVc.maxNum = MaxPictureCount;
     pickerVc.ifVideo = NO;
+    pickerVc.columnNumber = ColumnNumber;
     
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pickerVc];
 //    LHImagePickerController *pickerVc = [[LHImagePickerController alloc] init];
     UITabBarController *tabbarVc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
     UIViewController *selectedVc = (UIViewController *)tabbarVc.selectedViewController;
-    [selectedVc presentViewController:pickerVc animated:YES completion:nil];
+    [selectedVc presentViewController:nav animated:YES completion:nil];
 }
 
 
@@ -170,7 +173,7 @@ static CGFloat const XMGSpringFactor = 10;
     // 3. 设置是否可以选择视频/图片/原图
     imagePickerVc.allowPickingVideo = isVideo;
     imagePickerVc.allowPickingImage = isPicture;
-    imagePickerVc.allowPickingOriginalPhoto = YES;
+    imagePickerVc.allowPickingOriginalPhoto = NO;
     imagePickerVc.allowPickingGif = NO;
     
     // 4. 照片排列按修改时间升序

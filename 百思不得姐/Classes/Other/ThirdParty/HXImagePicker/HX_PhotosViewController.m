@@ -82,7 +82,7 @@ static NSString *cellFooterId = @"photoCellFooterId";
     
     NSInteger count = [HX_AssetManager sharedManager].selectedPhotos.count;
     
-    CGFloat CVwidth = (width - 15 ) / 4;
+    CGFloat CVwidth = (width - 15 ) / self.columnNumber;
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.itemSize = CGSizeMake(CVwidth, CVwidth);
     flowLayout.minimumInteritemSpacing = 5;

@@ -316,6 +316,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
     [self.controlView zf_playerPlayBtnState:YES];
     if (self.state == ZFPlayerStatePause) { self.state = ZFPlayerStatePlaying; }
     self.isPauseByUser = NO;
+    
     [_player play];
     if (!self.isBottomVideo) {
         // 显示控制层

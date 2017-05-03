@@ -19,6 +19,10 @@
 #import <MBProgressHUD.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "SAVideoRangeSlider.h"
+
+#import <MediaPlayer/MediaPlayer.h>
+#import "GHHPhotoManager.h"
+#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 @interface LHEditVideoViewController () <ZFPlayerDelegate, SAVideoRangeSliderDelegate>{
 
     CGFloat startValue;
@@ -35,9 +39,37 @@
 @property(nonatomic, strong) AVAsset *videoAsset;
 
 @property (strong, nonatomic) SAVideoRangeSlider *mySAVideoRangeSlider;
+
+
+@property(nonatomic, strong)GHHPhotoManager *manager;
+@property(nonatomic, strong)AVURLAsset *avasset;
+@property(nonatomic, strong)AVAssetImageGenerator *generator;
+@property(nonatomic, strong)MPMoviePlayerController *moviePlayer;
+@property(nonatomic, strong)UISlider *slider;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) UIButton *playBtn;
+@property (nonatomic,strong) ALAssetsLibrary *assetLibrary;
 @end
 
 @implementation LHEditVideoViewController
+
+- (ALAssetsLibrary *)assetLibrary{
+    
+    if (!_assetLibrary) {
+        
+        _assetLibrary = [[ALAssetsLibrary alloc] init];
+        
+    }
+    return _assetLibrary;
+}
+
+- (instancetype)initWithAsset:(PHAsset *)asset {
+    self = [super init];
+    if (self) {
+        self.asset = asset;
+    }
+    return self;
+}
 
 - (void)dealloc {
     NSLog(@"%@释放了",self.class);
@@ -85,7 +117,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self setUpPlayer];
+//    [self setUpPlayer];
     
     [self setUpSliderView];
     
@@ -96,9 +128,100 @@
     
     [self setUpVideoRangeSlider];
     
+    [self setUpSlider];
+    
+    
+    [self setUpPlayBtn];
     [DZNotificationCenter addObserver:self selector:@selector(getSliderValue:) name:@"LHSliderMoveViewToValue" object:nil];
     
     
+}
+
+- (void)setUpPlayBtn{
+    
+    // 代码添加playerBtn到imageView上
+    self.playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.playBtn setImage:[UIImage imageNamed:@"video-play"] forState:UIControlStateNormal];
+    [self.playBtn addTarget:self action:@selector(playBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.imageView addSubview:self.playBtn];
+    [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.imageView);
+        make.width.height.mas_equalTo(50);
+    }];
+}
+
+- (void)playBtnClick:(UIButton *)sender {
+  
+//    ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
+//    playerModel.title            = @"";
+//    playerModel.videoURL         = self.videoURL;
+//    
+//    playerModel.placeholderImageURLString = @"";
+//    playerModel.tableView        = @"";
+//    playerModel.indexPath        = weakIndexPath;
+//    // 赋值分辨率字典
+//    //        playerModel.resolutionDic    = dic;
+//    // player的父视图
+//    playerModel.fatherView       = self.imageView;
+//    
+//    // 设置播放控制层和model
+//    [weakSelf.playerView playerControlView:weakSelf.controlView playerModel:playerModel];
+//    // 下载功能
+//    weakSelf.playerView.hasDownload = YES;
+//    // 自动播放
+//    [weakSelf.playerView autoPlayTheVideo];
+    [self setUpPlayer];
+    [sender bringSubviewToFront:self.playerView];
+}
+
+- (void)setUpSlider{
+
+    self.imageView.image = [self.assetLibrary thumbnailImageForVideo:self.videoURL atTime:0];
+    
+    self.manager = [[GHHPhotoManager alloc] init];
+    NSString *videoURLStr = [[NSBundle mainBundle] pathForResource:@"faceDemo" ofType:@"m4v"];
+    NSURL *sampleURL = [NSURL fileURLWithPath:videoURLStr];
+    
+    self.avasset = [self.manager requestVideoWithAsset:self.asset];
+    
+    self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:self.videoURL];
+    self.moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
+    
+    self.moviePlayer.view.frame = self.imageView.bounds;
+    
+    self.moviePlayer.shouldAutoplay = NO;
+    
+    [self.moviePlayer prepareToPlay];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerThumbnailImageRequestDidFinish:) name:MPMoviePlayerThumbnailImageRequestDidFinishNotification object:nil];
+
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    self.slider = [[UISlider alloc] initWithFrame:CGRectMake(0, self.view.lh_Height - 130, ScreenWidth, 100)];
+    [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    self.slider.maximumValue = [self getVideoDurationTime0:sampleURL];
+    self.slider.minimumValue = 0.0;
+    [self.slider setThumbImage:[UIImage imageNamed:@"shuxianbaishe"] forState:UIControlStateNormal];
+    [self.view addSubview:self.slider];
+}
+
+#pragma mark - Norification
+- (void)moviePlayerThumbnailImageRequestDidFinish:(NSNotification *)notify {
+    NSDictionary *userinfo = [notify userInfo];
+    NSError* value = [userinfo objectForKey:MPMoviePlayerThumbnailErrorKey];
+    if (value != nil) {
+        NSLog(@"Error creating video thumbnail image. Details: %@", [value debugDescription]);
+    } else {
+        self.imageView.image = [userinfo valueForKey:MPMoviePlayerThumbnailImageKey];
+    }
+}
+
+- (void)sliderValueChanged:(UISlider *)sender {
+    XMGLog(@"sliderValueChanged  %f",sender.value);
+    
+        [self.moviePlayer requestThumbnailImagesAtTimes:[NSArray arrayWithObject:[NSNumber numberWithDouble:sender.value]] timeOption:MPMovieTimeOptionExact];
+
+
 }
 
 - (void)setUpVideoRangeSlider{
@@ -135,12 +258,12 @@
 
 - (void)setUpPlayer{
 
-    [self.playerFatherView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(64);
-        make.leading.trailing.mas_equalTo(0);
-        // 这里宽高比16：9,可自定义宽高比
-        make.height.mas_equalTo(self.playerFatherView.mas_width).multipliedBy(9.0f/16.0f);
-    }];
+//    [self.playerFatherView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(64);
+//        make.leading.trailing.mas_equalTo(0);
+//        // 这里宽高比16：9,可自定义宽高比
+//        make.height.mas_equalTo(self.playerFatherView.mas_width).multipliedBy(9.0f/16.0f);
+//    }];
     // 自动播放，默认不自动播放
     [self.playerView autoPlayTheVideo];
 }
@@ -148,6 +271,14 @@
 - (float)getVideoDurationTime{
 
     AVURLAsset * asset = [AVURLAsset assetWithURL:self.videoURL];
+    CMTime   time = [asset duration];
+    XMGLog(@"viewDidLoad %lld:%d",time.value , time.timescale);
+    return ceil(time.value/time.timescale);
+}
+
+- (float)getVideoDurationTime0:(NSURL *)url{
+    
+    AVURLAsset * asset = [AVURLAsset assetWithURL:url];
     CMTime   time = [asset duration];
     XMGLog(@"viewDidLoad %lld:%d",time.value , time.timescale);
     return ceil(time.value/time.timescale);

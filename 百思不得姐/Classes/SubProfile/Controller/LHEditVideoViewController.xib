@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LHEditVideoViewController">
             <connections>
+                <outlet property="imageView" destination="Hyr-ZD-Apf" id="KWA-51-hR4"/>
                 <outlet property="playerFatherView" destination="qne-Y3-WuR" id="bfk-wk-hZD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,7 +25,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qne-Y3-WuR">
                     <rect key="frame" x="0.0" y="64" width="375" height="211"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZFPlayer_loading_bgView" translatesAutoresizingMaskIntoConstraints="NO" id="Hyr-ZD-Apf">
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZFPlayer_loading_bgView" translatesAutoresizingMaskIntoConstraints="NO" id="Hyr-ZD-Apf">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                         </imageView>
                     </subviews>

@@ -101,7 +101,7 @@ static CGFloat const XMGSpringFactor = 10;
     [self cancelWithComplentionBlock:^{
         if (button.tag == 0) {
              XMGLog(@"发视频");
-            
+            //imovie  https://github.com/tapharmonic/AVFoundationEditor/blob/master/README.md
             [self pushImagePickerController:NO video:YES];
         }else if (button.tag == 1) {
         

@@ -20,6 +20,7 @@
 #import "LHMergeVideoController.h"
 #import "LHEditVideoViewController.h"
 #import "UIView+XMGExtension.h"
+#import "UIImage+XMGImageExtension.h"
 
 #define  DownloadManager  [ZFDownloadManager sharedDownloadManager]
 #define AUDIO_URL [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"月半弯" ofType:@"mp3"]]
@@ -572,10 +573,10 @@
     if (!urlStr) {
         return;
     }
-    NSURL *sampleURL = [NSURL fileURLWithPath:urlStr];
+//    NSURL *sampleURL = [NSURL fileURLWithPath:urlStr];
     
-    //    NSString *videoURL = [[NSBundle mainBundle] pathForResource:@"faceDemo" ofType:@"m4v"];
-    //    NSURL *sampleURL = [NSURL fileURLWithPath:videoURL];
+        NSString *videoURL = [[NSBundle mainBundle] pathForResource:@"faceDemo" ofType:@"m4v"];
+        NSURL *sampleURL = [NSURL fileURLWithPath:videoURL];
     //1 创建AVAsset实例 AVAsset包含了video的所有信息
     self.videoAsset = [AVAsset assetWithURL:sampleURL];
     //2 创建AVMutableComposition实例. apple developer 里边的解释
@@ -694,10 +695,33 @@
     if (!urlStr) {
         return;
     }
-        NSURL *sampleURL = [NSURL fileURLWithPath:urlStr];
+    NSURL *sampleURL = [NSURL fileURLWithPath:urlStr];
+    NSMutableString *pathToMovie = [self createPathToMovie];
+    UIImage *image = [UIImage imageNamed:@"sample02"];
+    UIImageView *imv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    imv.hidden = NO;
+    [imv setImage:image];
     
-//    NSString *videoURL = [[NSBundle mainBundle] pathForResource:@"faceDemo" ofType:@"m4v"];
-//    NSURL *sampleURL = [NSURL fileURLWithPath:videoURL];
+    __weak CZDownloadViewController *weakSelf = self;
+//    [image addWaterPictureToEditVideoUrl:sampleURL outToPath:pathToMovie waterPicture:imv finish:^(BOOL isFinish) {
+//        NSLog(@"%d",isFinish);
+//        if (isFinish) {
+//            
+//            [weakSelf createAlbumPathName:@"视频剪辑大湿" patnMovie:pathToMovie];
+//        }
+//    }];
+}
+
+- (void )addWaterPictureToEditVideoUrl:(NSURL *)url outToPath:(NSMutableString *)savePath waterPicture:(UIImageView *)imageView finish:(void (^)(BOOL isFinish))finish{
+    
+    if(!url) {
+        NSLog(@"url为空");
+        return ;
+    }
+    NSURL *sampleURL = url;
+    
+    //    NSString *videoURL = [[NSBundle mainBundle] pathForResource:@"faceDemo" ofType:@"m4v"];
+    //    NSURL *sampleURL = [NSURL fileURLWithPath:videoURL];
     
     _movieFile = [[GPUImageMovie alloc] initWithURL:sampleURL];
     _movieFile.runBenchmark = YES;
@@ -710,7 +734,77 @@
     AVAsset *fileas = [AVAsset assetWithURL:sampleURL];
     CGSize movieSize = fileas.naturalSize;
     
-    [self readyFilter:movieSize urlStr:urlStr];
+    
+    UIView *vi = [[UIView alloc] initWithFrame:CGRectMake(0, 0, movieSize.width, movieSize.height)];
+    imageView.center = CGPointMake(0.1*vi.bounds.size.width, 0.1*vi.bounds.size.height);
+    [vi addSubview:imageView];
+    
+    _landBlendFilter = [[GPUImageAlphaBlendFilter alloc] init];
+    //mix即为叠加后的透明度,这里就直接写1.0了
+    _landBlendFilter.mix = 0.5f;
+    _landInput = [[GPUImageUIElement alloc] initWithView:vi];
+    _landTransformFilter = [[GPUImageTransformFilter alloc] init];
+    
+    __unsafe_unretained GPUImageUIElement *weakLandInput = _landInput;
+    
+    [_filter setFrameProcessingCompletionBlock:^(GPUImageOutput * filter, CMTime time){
+        NSLog(@"setFrameProcessingCompletionBlock time.value:%lld time.timescale:%d  %lld",time.value,time.timescale,time.value/time.timescale);
+        
+        [weakLandInput update];
+    }];
+    
+    NSMutableString *pathToMovie = savePath;
+    NSString *urlStr = [NSString stringWithFormat:@"%@",url];
+    NSString *appendStr = [urlStr lastPathComponent];
+    [pathToMovie appendString:appendStr];
+    unlink([pathToMovie UTF8String]); //如果视频存在，删掉！
+    NSURL *movieURL = [NSURL fileURLWithPath:pathToMovie];
+    
+    GPUImageMovieWriter *movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(640.0, 480.0)];
+    movieWriter.transform = CGAffineTransformMakeScale(0.3, 0.3);
+    
+    if (_movieFile) {
+        [_movieFile removeAllTargets];
+    }
+    [_movieFile addTarget:_filter];
+    
+    if (_filter) {
+        [_filter removeAllTargets];
+    }
+    [_filter addTarget:_landBlendFilter];
+    
+    if (_landInput) {
+        [_landInput removeAllTargets];
+    }
+    [_landInput addTarget:_landBlendFilter];
+    
+    if (_landBlendFilter) {
+        [_landBlendFilter removeAllTargets];
+    }
+    
+    
+    [_landInput addTarget:_landTransformFilter];
+    [_landTransformFilter addTarget:_landBlendFilter];
+    NSLog(@" %@",_landBlendFilter);
+    [_landBlendFilter addTarget:movieWriter];
+    
+    //    __weak CZDownloadViewController *weakSelf = self;
+    movieWriter.shouldPassthroughAudio = YES;
+    _movieFile.audioEncodingTarget = movieWriter;
+    [_movieFile enableSynchronizedEncodingUsingMovieWriter:movieWriter];
+    
+    [movieWriter startRecording];
+    [_movieFile startProcessing];
+    
+    __weak GPUImageMovieWriter *weakMovieWriter = movieWriter;
+    
+    [movieWriter setCompletionBlock:^{
+        [_filter removeTarget:weakMovieWriter];
+        [weakMovieWriter finishRecording];
+        BOOL isFinish = YES;
+        finish(isFinish);
+        //        [weakSelf createAlbumPathName:@"视频剪辑大湿" patnMovie:pathToMovie];
+    }];
 }
 
 - (void)readyFilter:(CGSize)movieSize urlStr:(NSString *)urlStr{
@@ -719,6 +813,7 @@
     UIImageView *imv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     imv.hidden = NO;
     [imv setImage:image];
+    
     UIView *vi = [[UIView alloc] initWithFrame:CGRectMake(0, 0, movieSize.width, movieSize.height)];
     imv.center = CGPointMake(0.1*vi.bounds.size.width, 0.1*vi.bounds.size.height);
     [vi addSubview:imv];

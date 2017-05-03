@@ -199,6 +199,7 @@ static NSString * const XMGTopicCellId = @"topic";
         ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
         playerModel.title            = topic.text;
         playerModel.videoURL         = [NSURL URLWithString:topic.videouri];
+        
         playerModel.placeholderImageURLString = topic.large_image;
         playerModel.tableView        = weakSelf.tableView;
         playerModel.indexPath        = weakIndexPath;

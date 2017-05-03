@@ -82,6 +82,7 @@
 		2E04A6A31E8FAC180054A4B1 /* qz_phototlist_shadow_full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E04A6811E8FAC180054A4B1 /* qz_phototlist_shadow_full@2x.png */; };
 		2E04A6A41E8FAC180054A4B1 /* tianjiatupian@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E04A6821E8FAC180054A4B1 /* tianjiatupian@2x.png */; };
 		2E04A6A51E8FAC180054A4B1 /* VideoSendIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E04A6831E8FAC180054A4B1 /* VideoSendIcon@2x.png */; };
+		2E08F17C1EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E08F17B1EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		2E0A2F0F1E8CEF2600DA9956 /* Cloud Player.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2E0A2F0E1E8CEF2600DA9956 /* Cloud Player.bundle */; };
 		2E1129BC1D371D93002BCAE2 /* XMGTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1129BB1D371D93002BCAE2 /* XMGTopicVideoView.m */; };
 		2E1129BE1D371DB2002BCAE2 /* XMGTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1129BD1D371DB2002BCAE2 /* XMGTopicVideoView.xib */; };
@@ -110,10 +111,13 @@
 		2E81BDE21E8A0F0D0027D6D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E81BDE41E8A0F0D0027D6D8 /* InfoPlist.strings */; };
 		2E86BCA91D3F864000399188 /* XMGMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E86BCA81D3F864000399188 /* XMGMeCell.m */; };
 		2EA6F0851D25FE6900357865 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F0841D25FE6900357865 /* Foundation+Log.m */; };
+		2EAF95721EA8930A007C93F9 /* GHHPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF95711EA8930A007C93F9 /* GHHPhotoManager.m */; };
+		2EAF95751EA89473007C93F9 /* GHHImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF95741EA89473007C93F9 /* GHHImageItem.m */; };
 		2EB0045C1D260439002212D8 /* XMGRecommendCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB0045B1D260439002212D8 /* XMGRecommendCategory.m */; };
 		2EBCB0861D2C9A2200E31B4F /* XMGLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBCB0841D2C9A2200E31B4F /* XMGLoginRegisterViewController.m */; };
 		2EBCB0871D2C9A2200E31B4F /* XMGLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBCB0851D2C9A2200E31B4F /* XMGLoginRegisterViewController.xib */; };
 		2EBCB08A1D2CAEBB00E31B4F /* XMGVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBCB0891D2CAEBB00E31B4F /* XMGVerticalButton.m */; };
+		2EC123AB1EB766DD0037ED31 /* UIImage+XMGImageExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC123AA1EB766DD0037ED31 /* UIImage+XMGImageExtension.m */; };
 		2ED0ABD31D263DBA00EBEEF1 /* XMGRecommendUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0ABD11D263DBA00EBEEF1 /* XMGRecommendUserCell.m */; };
 		2ED0ABD41D263DBA00EBEEF1 /* XMGRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0ABD21D263DBA00EBEEF1 /* XMGRecommendUserCell.xib */; };
 		2ED0ABD71D26465A00EBEEF1 /* XMGRecommendUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0ABD61D26465A00EBEEF1 /* XMGRecommendUser.m */; };
@@ -314,6 +318,8 @@
 		2E04A6811E8FAC180054A4B1 /* qz_phototlist_shadow_full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qz_phototlist_shadow_full@2x.png"; sourceTree = "<group>"; };
 		2E04A6821E8FAC180054A4B1 /* tianjiatupian@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tianjiatupian@2x.png"; sourceTree = "<group>"; };
 		2E04A6831E8FAC180054A4B1 /* VideoSendIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VideoSendIcon@2x.png"; sourceTree = "<group>"; };
+		2E08F17A1EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		2E08F17B1EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		2E0A2F0E1E8CEF2600DA9956 /* Cloud Player.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "Cloud Player.bundle"; sourceTree = "<group>"; };
 		2E1129BA1D371D93002BCAE2 /* XMGTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTopicVideoView.h; sourceTree = "<group>"; };
 		2E1129BB1D371D93002BCAE2 /* XMGTopicVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopicVideoView.m; sourceTree = "<group>"; };
@@ -371,6 +377,10 @@
 		2E86BCA71D3F864000399188 /* XMGMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGMeCell.h; sourceTree = "<group>"; };
 		2E86BCA81D3F864000399188 /* XMGMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGMeCell.m; sourceTree = "<group>"; };
 		2EA6F0841D25FE6900357865 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		2EAF95701EA8930A007C93F9 /* GHHPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHHPhotoManager.h; sourceTree = "<group>"; };
+		2EAF95711EA8930A007C93F9 /* GHHPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHHPhotoManager.m; sourceTree = "<group>"; };
+		2EAF95731EA89473007C93F9 /* GHHImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHHImageItem.h; sourceTree = "<group>"; };
+		2EAF95741EA89473007C93F9 /* GHHImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHHImageItem.m; sourceTree = "<group>"; };
 		2EB0045A1D260439002212D8 /* XMGRecommendCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecommendCategory.h; sourceTree = "<group>"; };
 		2EB0045B1D260439002212D8 /* XMGRecommendCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecommendCategory.m; sourceTree = "<group>"; };
 		2EBCB0831D2C9A2200E31B4F /* XMGLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGLoginRegisterViewController.h; sourceTree = "<group>"; };
@@ -378,6 +388,8 @@
 		2EBCB0851D2C9A2200E31B4F /* XMGLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGLoginRegisterViewController.xib; sourceTree = "<group>"; };
 		2EBCB0881D2CAEBB00E31B4F /* XMGVerticalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGVerticalButton.h; sourceTree = "<group>"; };
 		2EBCB0891D2CAEBB00E31B4F /* XMGVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGVerticalButton.m; sourceTree = "<group>"; };
+		2EC123A91EB766DD0037ED31 /* UIImage+XMGImageExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XMGImageExtension.h"; sourceTree = "<group>"; };
+		2EC123AA1EB766DD0037ED31 /* UIImage+XMGImageExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XMGImageExtension.m"; sourceTree = "<group>"; };
 		2ED0ABD01D263DBA00EBEEF1 /* XMGRecommendUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecommendUserCell.h; sourceTree = "<group>"; };
 		2ED0ABD11D263DBA00EBEEF1 /* XMGRecommendUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecommendUserCell.m; sourceTree = "<group>"; };
 		2ED0ABD21D263DBA00EBEEF1 /* XMGRecommendUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendUserCell.xib; sourceTree = "<group>"; };
@@ -674,6 +686,15 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		2E08F1791EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum */ = {
+			isa = PBXGroup;
+			children = (
+				2E08F17A1EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				2E08F17B1EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
+			);
+			path = "ALAssetsLibrary+CustomPhotoAlbum";
+			sourceTree = "<group>";
+		};
 		2E5A7D881D236BA200170E26 = {
 			isa = PBXGroup;
 			children = (
@@ -736,6 +757,8 @@
 		2E81BDB21E8A0D9C0027D6D8 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				2E08F1791EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum */,
+				2EAF956F1EA892BC007C93F9 /* GHHPhotoManager */,
 				2E04A6531E8FAC180054A4B1 /* HXImagePicker */,
 				2E04A6221E8F45080054A4B1 /* TZImagePickerController */,
 				2ED23EE61E8E4A8300D3B4D1 /* LxGridViewFlowLayout */,
@@ -788,6 +811,17 @@
 				2E81BDC41E8A0DC40027D6D8 /* UIViewController+ZFPlayerRotation.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		2EAF956F1EA892BC007C93F9 /* GHHPhotoManager */ = {
+			isa = PBXGroup;
+			children = (
+				2EAF95731EA89473007C93F9 /* GHHImageItem.h */,
+				2EAF95741EA89473007C93F9 /* GHHImageItem.m */,
+				2EAF95701EA8930A007C93F9 /* GHHPhotoManager.h */,
+				2EAF95711EA8930A007C93F9 /* GHHPhotoManager.m */,
+			);
+			path = GHHPhotoManager;
 			sourceTree = "<group>";
 		};
 		2ED23EDA1E8E3DCE00D3B4D1 /* SubPublish */ = {
@@ -1067,6 +1101,8 @@
 		2EF0B7721D23C4D9006808F5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2EC123A91EB766DD0037ED31 /* UIImage+XMGImageExtension.h */,
+				2EC123AA1EB766DD0037ED31 /* UIImage+XMGImageExtension.m */,
 				2EF0B7731D23C4D9006808F5 /* XMGMeViewController.h */,
 				2EF0B7741D23C4D9006808F5 /* XMGMeViewController.m */,
 				2E02198B1D4098F40029C1E7 /* XMGWebViewController.h */,
@@ -1404,6 +1440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EAF95721EA8930A007C93F9 /* GHHPhotoManager.m in Sources */,
 				2E007C881D407F930074419C /* XMGSqaureButton.m in Sources */,
 				2ED0ABD71D26465A00EBEEF1 /* XMGRecommendUser.m in Sources */,
 				2EFA13A41D2CD09F00DE9502 /* XMGTextField.m in Sources */,
@@ -1457,6 +1494,7 @@
 				2E04A6431E8F45080054A4B1 /* TZImageManager.m in Sources */,
 				2E81BDDA1E8A0DC40027D6D8 /* MMMaterialDesignSpinner.m in Sources */,
 				2EF0B75C1D23C371006808F5 /* UIView+XMGExtension.m in Sources */,
+				2EAF95751EA89473007C93F9 /* GHHImageItem.m in Sources */,
 				2E81BDD51E8A0DC40027D6D8 /* UIImageView+ZFCache.m in Sources */,
 				2E04A6871E8FAC180054A4B1 /* ExternStringDefine.m in Sources */,
 				2E04A64E1E8F7F9E0054A4B1 /* LHImagePickerController.m in Sources */,
@@ -1482,6 +1520,7 @@
 				2E81BDD21E8A0DC40027D6D8 /* ASValuePopUpView.m in Sources */,
 				2EF0B75D1D23C371006808F5 /* XMGTabBarController.m in Sources */,
 				2EF1716B1D2F510C00FA9896 /* NSDate+XMGExtension.m in Sources */,
+				2E08F17C1EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				2E04A64B1E8F45080054A4B1 /* UIView+Layout.m in Sources */,
 				2E81BDD61E8A0DC40027D6D8 /* UINavigationController+ZFPlayerRotation.m in Sources */,
 				2EF0B7711D23C4CC006808F5 /* XMGFriendThrendsViewController.m in Sources */,
@@ -1507,6 +1546,7 @@
 				2E81BDDD1E8A0DC40027D6D8 /* ZFPlayerControlView.m in Sources */,
 				2E81BDD91E8A0DC40027D6D8 /* UIViewController+ZFPlayerRotation.m in Sources */,
 				2EFA90F91D41E7F600DC2698 /* XMGAddTagViewController.m in Sources */,
+				2EC123AB1EB766DD0037ED31 /* UIImage+XMGImageExtension.m in Sources */,
 				2ED23EE91E8E4A8300D3B4D1 /* LxGridViewFlowLayout.m in Sources */,
 				2EF0B75B1D23C371006808F5 /* UIBarButtonItem+XMGEXtension.m in Sources */,
 				2E0038BE1D3F21CF00DEB02F /* UIImage+XMGExtension.m in Sources */,

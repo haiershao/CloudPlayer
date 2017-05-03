@@ -12,7 +12,7 @@
 /** 视频URL */
 @property (nonatomic, strong) NSURL *videoURL;
 
-
+@property(nonatomic, strong)PHAsset *asset;
 + (instancetype)editVideoViewController;
 
 @end

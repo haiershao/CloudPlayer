@@ -1,0 +1,445 @@
+//
+//  SYRecordVideoController.m
+//  SYRecordVideoDemo
+//
+//  Created by leju_esf on 17/3/15.
+//  Copyright © 2017年 yjc. All rights reserved.
+//
+
+#import "SYRecordVideoController.h"
+#import "WCLRecordEngine.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import "SYVideoModel.h"
+#import <Photos/Photos.h>
+#import "CDPVideoEditor.h"
+#import "SYShareVideoModel.h"
+#import "SYVideoMergeManager.h"
+#import "MBProgressHUD.h"
+#import "HWUserInstanceInfo.h"
+#import "HWBandInfoController.h"
+#import <CoreLocation/CoreLocation.h>
+#import "CityInfo.h"
+#import "HWUserLocation.h"
+@interface SYRecordVideoController ()<WCLRecordEngineDelegate,MBProgressHUDDelegate,CLLocationManagerDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *startBtn;
+@property (weak, nonatomic) IBOutlet UISwitch *soundSwitch;
+@property (strong, nonatomic) WCLRecordEngine *recordEngine;
+@property (weak, nonatomic) IBOutlet UIView *shadowView;
+@property (weak, nonatomic) IBOutlet UIButton *PlusBtn;
+
+@property (weak, nonatomic) IBOutlet UIImageView *focusCursor;
+@property (strong, nonatomic) NSTimer *timers;
+@property (atomic, assign) CGFloat startRecordTime;
+@property (atomic, assign) CGFloat endRecordTime;
+@property (nonatomic, strong) NSMutableArray *sharePoints;
+@property (nonatomic,strong)MBProgressHUD *HUD;
+
+@property(nonatomic,strong) CLLocationManager *locationManager;
+
+@property (nonatomic,strong) CityInfo *cityModel;
+
+@end
+
+@implementation SYRecordVideoController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self addGenstureRecognizer];
+    [self.locationManager startUpdatingLocation];
+//    [self.recordEngine startUp];
+//    [self.recordEngine startCapture];
+
+ 
+    }
+- (void)timersD {
+    
+     self.timers = [NSTimer scheduledTimerWithTimeInterval:100.0 target:self selector:@selector(action3) userInfo:nil repeats:YES];
+    NSLog(@"ttttttt---%@",[NSString stringWithFormat:@"%@", self.timers]);
+    
+    //开启定时器
+    [self.timers setFireDate:[NSDate distantPast]];
+   
+}
+- (void)action3{
+    //[[UIScreen mainScreen] setBrightness:0.3];
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.locationManager startUpdatingLocation];
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.recordEngine shutdown];
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.recordEngine startUp];
+     [self.recordEngine startCapture];
+       //[self timersD];
+    
+    
+    //异步导出视频成功通知(在导出视频时最好不要进行其他操作，防止失败)
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exportSuccess:) name:CDPVideoEditorExportSuccess object:nil];
+    //视频存入本地照片库成功
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveSuccess) name:CDPVideoEditorSaveToLibrarySuccess object:nil];
+    
+    //改变i值进行不同测试(目前0为剪切视频,1为合并视频)
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+//导出视频成功
+-(void)exportSuccess:(NSNotification *)noti{
+    
+    NSLog(@"导出视频成功--%@",noti.object);
+    
+}
+//存入本地照片库成功
+-(void)saveSuccess{
+    NSLog(@"视频存入本地照片库成功");
+}
+// 两分钟保存一个视频
+- (void)recordProgress:(CGFloat)progress {
+    if (progress >= 1) {
+        [self cutOutRecord];
+        
+    }
+}
+// 切换摄像头
+- (IBAction)changeVido:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    [self.recordEngine switchCamera];
+}
+// 切换声音
+- (IBAction)switchVoice:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    NSLog(@"当前录制时间-----%f",self.recordEngine.currentRecordTime);
+    self.recordEngine.isSoundOff = !self.recordEngine.isSoundOff;
+}
+//截图
+- (IBAction)screenshot:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    [UIView animateWithDuration:1 animations:^{
+        
+    } completion:^(BOOL finished) {
+         UIImage *image =  [self fetchScreenshot];
+         UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+    }];
+    
+   
+}
+
+- (UIImage *)fetchScreenshot {
+    UIImage *image = nil;
+    if (self.recordEngine.previewLayer) {
+        CGSize imageSize = self.recordEngine.previewLayer.bounds.size;
+        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [self.recordEngine.previewLayer renderInContext:context];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
+    return image;
+}
+
+- (IBAction)PlusBtn:(id)sender {
+    self.shadowView.hidden = NO;
+    self.PlusBtn.hidden = YES;
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    self.shadowView.hidden = YES;
+    self.PlusBtn.hidden = NO;
+    //[self timersD];
+}
+
+- (IBAction)backAction {
+    __weak typeof(self) weakSelf = self;
+//    //圆形进度条
+//    self.HUD = [[MBProgressHUD alloc] initWithView:self.view];
+//    
+//    [self.view addSubview:_HUD];
+//    
+//    _HUD.mode = MBProgressHUDModeDeterminate;
+//    
+//    _HUD.delegate = self;
+//    
+//    _HUD.labelText = @"等待中";
+//    
+//    [_HUD showWhileExecuting:@selector(ProgressBar) onTarget:self withObject:nil animated:YES];
+    if (self.recordEngine.isCapturing) {
+        [self.recordEngine stopCaptureHandler:^(CGFloat totalTime) {
+           
+            [weakSelf saveVideoWithTotalTime:totalTime];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.recordEngine shutdown];
+                [weakSelf dismissViewControllerAnimated:YES completion:nil];
+            });
+        }];
+    }else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+//  进度条  计算
+//- (void)ProgressBar{
+//    // 进度指示器，从0.0到1.0，默认值为0.0
+//    float progress = 0.0f;
+//    
+//    while (progress < 2.0f) {
+//        
+//        progress += 0.01f;
+//        
+//        _HUD.progress = progress;
+//        
+//        //        usleep函数能把进程挂起一段时间， 单位是微秒（千分之一毫秒）
+//        usleep(50000);
+//    }
+//}
+//抢拍分享
+- (IBAction)startRecord:(UIButton *)sender {
+    
+    BOOL isShare = sender.tag == 1;
+    
+//    if (!isShare) {
+//         [self examineReportState];
+//    }
+   
+    if (self.recordEngine.currentRecordTime < 7) {
+        NSArray *list = [SYVideoModel videoList];
+        if (list.count > 0) {
+            SYVideoModel *model = list.lastObject;
+            SYShareVideoModel *shareModel = [[SYShareVideoModel alloc] init];
+            shareModel.pointTime = self.recordEngine.currentRecordTime;
+            shareModel.path1 = model.path;
+            shareModel.path2 = self.recordEngine.videoPath;
+            shareModel.isTowVideo = YES;
+            shareModel.isShare = isShare;
+            [self.sharePoints addObject:shareModel];
+        }else {
+            SYShareVideoModel *shareModel = [[SYShareVideoModel alloc] init];
+            shareModel.pointTime = 7;
+            shareModel.path1 = self.recordEngine.videoPath;
+            shareModel.isTowVideo = NO;
+            shareModel.isShare = isShare;
+            [self.sharePoints addObject:shareModel];
+        }
+    }else if (self.recordEngine.currentRecordTime > 112){
+        SYShareVideoModel *shareModel = [[SYShareVideoModel alloc] init];
+        shareModel.pointTime = self.recordEngine.currentRecordTime;
+        shareModel.path1 = self.recordEngine.videoPath;
+        shareModel.path2 = nil;
+        shareModel.isTowVideo = YES;
+        shareModel.isShare = isShare;
+        [self.sharePoints addObject:shareModel];
+    }else {
+        SYShareVideoModel *shareModel = [[SYShareVideoModel alloc] init];
+        shareModel.pointTime = self.recordEngine.currentRecordTime;
+        shareModel.path1 = self.recordEngine.videoPath;
+        shareModel.isTowVideo = NO;
+        shareModel.isShare = isShare;
+        [self.sharePoints addObject:shareModel];
+    }
+
+    __block int timeout=8; //倒计时时间
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
+    dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
+    dispatch_source_set_event_handler(_timer, ^{
+        if(timeout<=0){ //倒计时结束，关闭
+            dispatch_source_cancel(_timer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示 根据自己需求设置
+                
+                sender.userInteractionEnabled = YES;
+                 sender.selected = NO;
+                
+            });
+        }else{
+            
+            int seconds = timeout;
+            //NSString *strTime = [NSString stringWithFormat:@"%.2d", seconds];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //让按钮变为不可点击的灰色
+    
+                sender.userInteractionEnabled = NO;
+                sender.selected = YES;
+                //设置界面的按钮显示 根据自己需求设置
+                [UIView beginAnimations:nil context:nil];
+                [UIView setAnimationDuration:1];
+              
+                [UIView commitAnimations];
+            });
+            timeout--;
+        }
+    });
+    dispatch_resume(_timer);
+    
+}
+- (void)examineReportState {
+     __weak typeof(self) weakSelf = self;
+    HWUserInstanceInfo *InstanceInfo = [HWUserInstanceInfo shareUser];
+    NSDictionary *dict = @{
+                           @"did":@""
+                           };
+    
+    APIRequest *request = [[APIRequest alloc] initWithApiPath:@"/ControlCenter/v3/restapi/doaction" method:APIRequestMethodPost];
+    request.urlQueryParameters = @{
+                                   @"action":@"qry_devbind",
+                                   @"para":dict,
+                                   @"token":InstanceInfo.token
+                                   };
+    NSLog(@"request---%@",request);
+    [[APIRequestOperationManager sharedRequestOperationManager] requestAPI:request completion:^(id result, NSError *error) {
+        if (!result[@"data"]) {
+                HWBandInfoController *BandInfo =  [[HWBandInfoController alloc] initWithNibName:NSStringFromClass([HWBandInfoController class]) bundle:nil];
+            [self.recordEngine stopCaptureHandler:^(CGFloat totalTime) {
+                  [weakSelf saveVideoWithTotalTime:totalTime];
+            }];
+                [self presentViewController:BandInfo animated:YES completion:nil];
+        }
+
+    }];
+
+}
+
+- (void)cutOutRecord {
+    if (_recordEngine.videoPath.length > 0) {
+        //self.startBtn.selected = NO;
+         __weak typeof(self) weakSelf = self;
+        [self.recordEngine stopCaptureHandler:^(CGFloat totalTime) {
+            [weakSelf saveVideoWithTotalTime:totalTime];
+            [weakSelf.recordEngine startUp];
+            [weakSelf.recordEngine startCapture];
+            NSLog(@"保存成功一条视频");
+        }];
+    }else {
+        NSLog(@"请先录制视频~");
+    }
+}
+
+- (void)saveVideoWithTotalTime:(CGFloat)totalTime {
+    SYVideoModel *model = [[SYVideoModel alloc] init];
+    model.path = _recordEngine.videoPath;
+    model.totalTime = totalTime;
+    [SYVideoModel saveVideo:model];
+    _recordEngine.videoPath = nil;
+    NSMutableArray *tempArray = [NSMutableArray array];
+    for (SYShareVideoModel *sharemodel in self.sharePoints) {
+        if (sharemodel.isTowVideo == NO || (sharemodel.isTowVideo == YES && sharemodel.path2 != nil)) {
+            [[SYVideoMergeManager sharedManager] detailModel:sharemodel];
+        }else {
+
+            if (sharemodel.path2 == nil && sharemodel.path1 != model.path) {
+                sharemodel.path2 = model.path;
+                 [[SYVideoMergeManager sharedManager] detailModel:sharemodel];
+            }else {
+                [tempArray addObject:sharemodel];
+            }
+        }
+    }
+    self.sharePoints = tempArray;
+}
+
+- (WCLRecordEngine *)recordEngine {
+    if (_recordEngine == nil) {
+        _recordEngine = [[WCLRecordEngine alloc] init];
+        _recordEngine.delegate = self;
+       _recordEngine.previewLayer.connection.videoOrientation = AVCaptureVideoOrientationLandscapeRight;
+        
+        _recordEngine.previewLayer.frame = CGRectMake(0, 0, screenH, screenW);
+        [self.view.layer insertSublayer:_recordEngine.previewLayer atIndex:0];
+    }
+    return _recordEngine;
+}
+/**
+ *  添加点按手势，点按时聚焦
+ */
+-(void)addGenstureRecognizer{
+    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapScreen1:)];
+    [self.view addGestureRecognizer:tapGesture];
+}
+-(void)tapScreen1:(UITapGestureRecognizer *)tapGesture{
+    CGPoint point= [tapGesture locationInView:self.view];
+    //将UI坐标转化为摄像头坐标
+    //CGPoint cameraPoint= [self.recordEngine.previewLayer captureDevicePointOfInterestForPoint:point];
+    [self setFocusCursorWithPoint:point];
+    [self.recordEngine setFocusCursorWithPoint:point];
+    
+}
+-(void)setFocusCursorWithPoint:(CGPoint)point{
+    self.focusCursor.center=point;
+    self.focusCursor.transform=CGAffineTransformMakeScale(1.5, 1.5);
+    self.focusCursor.alpha=1.0;
+    [UIView animateWithDuration:1.0 animations:^{
+        self.focusCursor.transform=CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        self.focusCursor.alpha=0;
+        
+    }];
+}
+-(BOOL)shouldAutorotate{
+    return YES;
+}
+//支持的方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscapeRight;
+}
+
+- (NSMutableArray *)sharePoints {
+    if (_sharePoints == nil) {
+        _sharePoints = [[NSMutableArray alloc] init];
+    }
+    return _sharePoints;
+}
+#pragma mark - CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    CLLocation *currentLocation = [locations lastObject];
+    HWLog(@"%f,%f",currentLocation.coordinate.latitude,currentLocation.coordinate.longitude);
+     CLLocationDegrees ss = currentLocation.coordinate.latitude;
+//    self.latitudes =currentLocation.coordinate.latitude;
+     CLLocationDegrees dd = currentLocation.coordinate.longitude;
+    HWUserLocation *location = [[HWUserLocation alloc]init];
+    location.latitudes = dd;
+    location.longitudes = ss;
+    CLGeocoder *geocoder = [CLGeocoder new];
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+//        for (CLPlacemark *place in placemarks) 
+//            HWLog(@"%@ -- %@ -- %@ -- %@", place.name, place.country, place.subLocality, place.locality);
+        if (placemarks.count > 0) {
+            CLPlacemark *placemark = placemarks[0];
+            if (!placemark.locality) {
+                HWLog(@"无法定位当前城市");
+            }
+            HWLog(@"-----------------%@",placemark.addressDictionary);
+            CityInfo *ciyt = [CityInfo cityInfoDict:placemark.addressDictionary];
+           }
+        
+    }];
+}
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    if ([error code] == kCLErrorDenied) {
+        //无法定位
+    } else if ([error code] == kCLErrorLocationUnknown) {
+        //无法定位
+    }
+}
+
+- (CLLocationManager *)locationManager {
+    if (!_locationManager) {
+        _locationManager = [CLLocationManager new];
+        _locationManager.delegate = self;
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        _locationManager.distanceFilter = 10;
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.f) {
+            [_locationManager requestWhenInUseAuthorization];
+        }else {
+        }
+    }
+    return _locationManager;
+}
+
+
+@end

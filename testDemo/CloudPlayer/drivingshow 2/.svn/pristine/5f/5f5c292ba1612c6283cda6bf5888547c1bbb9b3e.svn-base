@@ -1,0 +1,31 @@
+//
+//  Video.h
+//  ioshuanwu
+//
+//  Created by 幻音 on 15/12/28.
+//  Copyright © 2015年 幻音. All rights reserved.
+//  视频Model
+
+#import <Foundation/Foundation.h>
+@class VideoSid;
+@interface Video : NSObject
+
+@property (nonatomic, strong) NSString * alarm_id;
+@property (nonatomic, strong) NSString * title;
+@property (nonatomic, assign) NSInteger  alarm_type;
+@property (nonatomic, strong) NSString * cid;
+@property (nonatomic, strong) NSString * comment_times;
+@property (nonatomic, strong) NSString * gen_time;
+@property (nonatomic, strong) NSString * good_times;
+@property (nonatomic, assign) NSInteger location;
+@property (nonatomic, strong) NSString * recommend;
+@property (nonatomic, strong) NSString * uid;
+@property (nonatomic, strong) NSString * view_times;
+@property (nonatomic, strong) VideoSid * alarm_info;
+//@property (nonatomic, strong) NSString * replyid;
+//@property (nonatomic, strong) NSString * title;
+//@property (nonatomic, strong) NSString * vid;
+//@property (nonatomic, strong) NSString * videosource;
+
+
+@end

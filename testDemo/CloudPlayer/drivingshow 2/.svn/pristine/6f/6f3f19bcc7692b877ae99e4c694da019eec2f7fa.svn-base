@@ -1,0 +1,62 @@
+//
+//  HWBandInfoController.m
+//  HuaWo
+//
+//  Created by yjc on 2017/3/31.
+//  Copyright © 2017年 HW. All rights reserved.
+//
+
+#import "HWBandInfoController.h"
+#import "HWUserInstanceInfo.h"
+@interface HWBandInfoController ()
+@property (weak, nonatomic) IBOutlet UITextField *name;
+@property (weak, nonatomic) IBOutlet UITextField *telnumber;
+@property (weak, nonatomic) IBOutlet UITextField *accentID;
+@property (weak, nonatomic) IBOutlet UITextField *carNumber;
+@property (weak, nonatomic) IBOutlet UIButton *bandNum;
+
+@end
+
+@implementation HWBandInfoController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+   
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+      [self.carNumber resignFirstResponder];
+}
+- (void)bandUserInfo {
+    HWUserInstanceInfo *InstanceInfo = [HWUserInstanceInfo shareUser];
+    NSDictionary *dict = @{
+                           @"did":@"",
+                           @"idno":self.accentID.text,
+                           @"name":self.name.text,
+                           @"phonenumber":self.telnumber.text,
+                           @"licenseno":self.carNumber.text
+                           };
+    
+    APIRequest *request = [[APIRequest alloc] initWithApiPath:@"/ControlCenter/v3/restapi/doaction" method:APIRequestMethodPost];
+    request.urlQueryParameters = @{
+                                   @"action":@"bind_devuser",
+                                   @"para":dict,
+                                   @"token":InstanceInfo.token
+                                   };
+    NSLog(@"request---%@",request);
+    [[APIRequestOperationManager sharedRequestOperationManager] requestAPI:request completion:^(id result, NSError *error) {
+      
+        
+       
+    }];
+
+}
+- (IBAction)back:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)bandNum:(UIButton *)sender {
+    [self bandUserInfo];
+}
+
+
+@end

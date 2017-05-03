@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LHEditVideoViewController">
+            <connections>
+                <outlet property="imageView" destination="Hyr-ZD-Apf" id="KWA-51-hR4"/>
+                <outlet property="playerFatherView" destination="qne-Y3-WuR" id="bfk-wk-hZD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qne-Y3-WuR">
+                    <rect key="frame" x="0.0" y="64" width="375" height="211"/>
+                    <subviews>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZFPlayer_loading_bgView" translatesAutoresizingMaskIntoConstraints="NO" id="Hyr-ZD-Apf">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Hyr-ZD-Apf" firstAttribute="leading" secondItem="qne-Y3-WuR" secondAttribute="leading" id="0qV-1Z-aSA"/>
+                        <constraint firstAttribute="trailing" secondItem="Hyr-ZD-Apf" secondAttribute="trailing" id="1L1-Rc-COE"/>
+                        <constraint firstAttribute="width" secondItem="qne-Y3-WuR" secondAttribute="height" multiplier="16:9" id="ZQ8-w1-dVH"/>
+                        <constraint firstAttribute="bottom" secondItem="Hyr-ZD-Apf" secondAttribute="bottom" id="Zwj-Bh-F9Y"/>
+                        <constraint firstItem="Hyr-ZD-Apf" firstAttribute="top" secondItem="qne-Y3-WuR" secondAttribute="top" id="jQU-zm-Hhi"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qne-Y3-WuR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="CTT-gq-XeT"/>
+                <constraint firstAttribute="trailing" secondItem="qne-Y3-WuR" secondAttribute="trailing" id="a8L-oI-R8Y"/>
+                <constraint firstItem="qne-Y3-WuR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pII-39-eES"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="ZFPlayer_loading_bgView" width="568" height="320"/>
+    </resources>
+</document>

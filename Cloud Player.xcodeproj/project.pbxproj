@@ -12,6 +12,10 @@
 		2E007C821D406E7D0074419C /* XMGMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E007C811D406E7D0074419C /* XMGMeFooterView.m */; };
 		2E007C851D4071B10074419C /* XMGSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E007C841D4071B10074419C /* XMGSquare.m */; };
 		2E007C881D407F930074419C /* XMGSqaureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E007C871D407F930074419C /* XMGSqaureButton.m */; };
+		2E01081A1EB987EC004CD852 /* CDPVideoEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0108151EB987EC004CD852 /* CDPVideoEditor.m */; };
+		2E01081B1EB987EC004CD852 /* CDPVideoRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0108171EB987EC004CD852 /* CDPVideoRecord.m */; };
+		2E01081C1EB987EC004CD852 /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0108191EB987EC004CD852 /* GPUImageBeautifyFilter.m */; };
+		2E01081F1EB988BA004CD852 /* UIImage+XMGImageExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E01081E1EB988BA004CD852 /* UIImage+XMGImageExtension.m */; };
 		2E02198E1D4098F40029C1E7 /* XMGWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02198C1D4098F40029C1E7 /* XMGWebViewController.m */; };
 		2E02198F1D4098F40029C1E7 /* XMGWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E02198D1D4098F40029C1E7 /* XMGWebViewController.xib */; };
 		2E0224F41E8B7ED500A82632 /* SAResizibleBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0224ED1E8B7ED500A82632 /* SAResizibleBubble.m */; };
@@ -117,7 +121,6 @@
 		2EBCB0861D2C9A2200E31B4F /* XMGLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBCB0841D2C9A2200E31B4F /* XMGLoginRegisterViewController.m */; };
 		2EBCB0871D2C9A2200E31B4F /* XMGLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBCB0851D2C9A2200E31B4F /* XMGLoginRegisterViewController.xib */; };
 		2EBCB08A1D2CAEBB00E31B4F /* XMGVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBCB0891D2CAEBB00E31B4F /* XMGVerticalButton.m */; };
-		2EC123AB1EB766DD0037ED31 /* UIImage+XMGImageExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC123AA1EB766DD0037ED31 /* UIImage+XMGImageExtension.m */; };
 		2ED0ABD31D263DBA00EBEEF1 /* XMGRecommendUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0ABD11D263DBA00EBEEF1 /* XMGRecommendUserCell.m */; };
 		2ED0ABD41D263DBA00EBEEF1 /* XMGRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0ABD21D263DBA00EBEEF1 /* XMGRecommendUserCell.xib */; };
 		2ED0ABD71D26465A00EBEEF1 /* XMGRecommendUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0ABD61D26465A00EBEEF1 /* XMGRecommendUser.m */; };
@@ -204,6 +207,14 @@
 		2E007C841D4071B10074419C /* XMGSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGSquare.m; sourceTree = "<group>"; };
 		2E007C861D407F930074419C /* XMGSqaureButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGSqaureButton.h; sourceTree = "<group>"; };
 		2E007C871D407F930074419C /* XMGSqaureButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGSqaureButton.m; sourceTree = "<group>"; };
+		2E0108141EB987EC004CD852 /* CDPVideoEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPVideoEditor.h; sourceTree = "<group>"; };
+		2E0108151EB987EC004CD852 /* CDPVideoEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPVideoEditor.m; sourceTree = "<group>"; };
+		2E0108161EB987EC004CD852 /* CDPVideoRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPVideoRecord.h; sourceTree = "<group>"; };
+		2E0108171EB987EC004CD852 /* CDPVideoRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPVideoRecord.m; sourceTree = "<group>"; };
+		2E0108181EB987EC004CD852 /* GPUImageBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBeautifyFilter.h; sourceTree = "<group>"; };
+		2E0108191EB987EC004CD852 /* GPUImageBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautifyFilter.m; sourceTree = "<group>"; };
+		2E01081D1EB988BA004CD852 /* UIImage+XMGImageExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XMGImageExtension.h"; sourceTree = "<group>"; };
+		2E01081E1EB988BA004CD852 /* UIImage+XMGImageExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XMGImageExtension.m"; sourceTree = "<group>"; };
 		2E02198B1D4098F40029C1E7 /* XMGWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGWebViewController.h; sourceTree = "<group>"; };
 		2E02198C1D4098F40029C1E7 /* XMGWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGWebViewController.m; sourceTree = "<group>"; };
 		2E02198D1D4098F40029C1E7 /* XMGWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGWebViewController.xib; sourceTree = "<group>"; };
@@ -388,8 +399,6 @@
 		2EBCB0851D2C9A2200E31B4F /* XMGLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGLoginRegisterViewController.xib; sourceTree = "<group>"; };
 		2EBCB0881D2CAEBB00E31B4F /* XMGVerticalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGVerticalButton.h; sourceTree = "<group>"; };
 		2EBCB0891D2CAEBB00E31B4F /* XMGVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGVerticalButton.m; sourceTree = "<group>"; };
-		2EC123A91EB766DD0037ED31 /* UIImage+XMGImageExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XMGImageExtension.h"; sourceTree = "<group>"; };
-		2EC123AA1EB766DD0037ED31 /* UIImage+XMGImageExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XMGImageExtension.m"; sourceTree = "<group>"; };
 		2ED0ABD01D263DBA00EBEEF1 /* XMGRecommendUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecommendUserCell.h; sourceTree = "<group>"; };
 		2ED0ABD11D263DBA00EBEEF1 /* XMGRecommendUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecommendUserCell.m; sourceTree = "<group>"; };
 		2ED0ABD21D263DBA00EBEEF1 /* XMGRecommendUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendUserCell.xib; sourceTree = "<group>"; };
@@ -514,6 +523,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E0108121EB987EC004CD852 /* CDPVideoRecord */ = {
+			isa = PBXGroup;
+			children = (
+				2E0108131EB987EC004CD852 /* CDPVideoEditor */,
+				2E0108161EB987EC004CD852 /* CDPVideoRecord.h */,
+				2E0108171EB987EC004CD852 /* CDPVideoRecord.m */,
+				2E0108181EB987EC004CD852 /* GPUImageBeautifyFilter.h */,
+				2E0108191EB987EC004CD852 /* GPUImageBeautifyFilter.m */,
+			);
+			path = CDPVideoRecord;
+			sourceTree = "<group>";
+		};
+		2E0108131EB987EC004CD852 /* CDPVideoEditor */ = {
+			isa = PBXGroup;
+			children = (
+				2E0108141EB987EC004CD852 /* CDPVideoEditor.h */,
+				2E0108151EB987EC004CD852 /* CDPVideoEditor.m */,
+			);
+			path = CDPVideoEditor;
+			sourceTree = "<group>";
+		};
 		2E0219901D40B51E0029C1E7 /* Publish */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,6 +787,7 @@
 		2E81BDB21E8A0D9C0027D6D8 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				2E0108121EB987EC004CD852 /* CDPVideoRecord */,
 				2E08F1791EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum */,
 				2EAF956F1EA892BC007C93F9 /* GHHPhotoManager */,
 				2E04A6531E8FAC180054A4B1 /* HXImagePicker */,
@@ -1101,8 +1132,8 @@
 		2EF0B7721D23C4D9006808F5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2EC123A91EB766DD0037ED31 /* UIImage+XMGImageExtension.h */,
-				2EC123AA1EB766DD0037ED31 /* UIImage+XMGImageExtension.m */,
+				2E01081D1EB988BA004CD852 /* UIImage+XMGImageExtension.h */,
+				2E01081E1EB988BA004CD852 /* UIImage+XMGImageExtension.m */,
 				2EF0B7731D23C4D9006808F5 /* XMGMeViewController.h */,
 				2EF0B7741D23C4D9006808F5 /* XMGMeViewController.m */,
 				2E02198B1D4098F40029C1E7 /* XMGWebViewController.h */,
@@ -1499,8 +1530,10 @@
 				2E04A6871E8FAC180054A4B1 /* ExternStringDefine.m in Sources */,
 				2E04A64E1E8F7F9E0054A4B1 /* LHImagePickerController.m in Sources */,
 				2EF0B76B1D23C4BA006808F5 /* XMGEssenceViewController.m in Sources */,
+				2E01081C1EB987EC004CD852 /* GPUImageBeautifyFilter.m in Sources */,
 				2ED23EE51E8E44BF00D3B4D1 /* XMGPictureCollectionCell.m in Sources */,
 				2E04A6861E8FAC180054A4B1 /* DragCellCollectionView.m in Sources */,
+				2E01081F1EB988BA004CD852 /* UIImage+XMGImageExtension.m in Sources */,
 				2EFC81941D2FA51400036D20 /* XMGTopicPictureView.m in Sources */,
 				2E04A68B1E8FAC180054A4B1 /* HX_AlbumViewController.m in Sources */,
 				2E04A6411E8F45080054A4B1 /* TZGifPhotoPreviewController.m in Sources */,
@@ -1519,6 +1552,7 @@
 				2EBCB08A1D2CAEBB00E31B4F /* XMGVerticalButton.m in Sources */,
 				2E81BDD21E8A0DC40027D6D8 /* ASValuePopUpView.m in Sources */,
 				2EF0B75D1D23C371006808F5 /* XMGTabBarController.m in Sources */,
+				2E01081A1EB987EC004CD852 /* CDPVideoEditor.m in Sources */,
 				2EF1716B1D2F510C00FA9896 /* NSDate+XMGExtension.m in Sources */,
 				2E08F17C1EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				2E04A64B1E8F45080054A4B1 /* UIView+Layout.m in Sources */,
@@ -1543,10 +1577,10 @@
 				2E02198E1D4098F40029C1E7 /* XMGWebViewController.m in Sources */,
 				2EFB66DC1D2B9080006174F3 /* XMGRecommendTag.m in Sources */,
 				2E81BDD71E8A0DC40027D6D8 /* UITabBarController+ZFPlayerRotation.m in Sources */,
+				2E01081B1EB987EC004CD852 /* CDPVideoRecord.m in Sources */,
 				2E81BDDD1E8A0DC40027D6D8 /* ZFPlayerControlView.m in Sources */,
 				2E81BDD91E8A0DC40027D6D8 /* UIViewController+ZFPlayerRotation.m in Sources */,
 				2EFA90F91D41E7F600DC2698 /* XMGAddTagViewController.m in Sources */,
-				2EC123AB1EB766DD0037ED31 /* UIImage+XMGImageExtension.m in Sources */,
 				2ED23EE91E8E4A8300D3B4D1 /* LxGridViewFlowLayout.m in Sources */,
 				2EF0B75B1D23C371006808F5 /* UIBarButtonItem+XMGEXtension.m in Sources */,
 				2E0038BE1D3F21CF00DEB02F /* UIImage+XMGExtension.m in Sources */,

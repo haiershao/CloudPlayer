@@ -21,6 +21,7 @@
 #import "LHEditVideoViewController.h"
 #import "UIView+XMGExtension.h"
 #import "UIImage+XMGImageExtension.h"
+#import "CDPVideoEditor.h"
 
 #define  DownloadManager  [ZFDownloadManager sharedDownloadManager]
 #define AUDIO_URL [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"月半弯" ofType:@"mp3"]]
@@ -696,20 +697,70 @@
         return;
     }
     NSURL *sampleURL = [NSURL fileURLWithPath:urlStr];
+    
+    UIImage *image = [[UIImage alloc] init];
     NSMutableString *pathToMovie = [self createPathToMovie];
-    UIImage *image = [UIImage imageNamed:@"sample02"];
+    NSString *strUrl = [NSString stringWithFormat:@"%@",sampleURL];
+    NSString *appendStr = [strUrl lastPathComponent];
+    [pathToMovie appendString:appendStr];
+    unlink([pathToMovie UTF8String]); //如果视频存在，删掉！
+    
+    UIImage *image0 = [UIImage imageNamed:@"sample02"];
     UIImageView *imv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     imv.hidden = NO;
-    [imv setImage:image];
+    [imv setImage:image0];
+   
     
-    __weak CZDownloadViewController *weakSelf = self;
-//    [image addWaterPictureToEditVideoUrl:sampleURL outToPath:pathToMovie waterPicture:imv finish:^(BOOL isFinish) {
+    //1.
+    AVAsset *fileas = [AVAsset assetWithURL:sampleURL];
+    CGSize movieSize = fileas.naturalSize;
+    CGPoint center = CGPointMake(0.15*movieSize.width, 0.15*movieSize.height);
+//    __weak CZDownloadViewController *weakSelf = self;
+//    [image addWaterPictureToEditVideoUrl:sampleURL outToPath:pathToMovie waterPicture:imv imageViewCenter:center finish:^(BOOL isFinish) {
 //        NSLog(@"%d",isFinish);
 //        if (isFinish) {
 //            
 //            [weakSelf createAlbumPathName:@"视频剪辑大湿" patnMovie:pathToMovie];
 //        }
 //    }];
+    
+    //2.
+//    __weak CZDownloadViewController *weakSelf = self;
+//    //CGRectMake(10, 0.9*movieSize.height, 100, 40);
+//    CGRect pictureFrame = CGRectMake(10, 0.85*movieSize.height, 100, 60);
+//    [image0 addWaterPictureByPath:sampleURL andSavePath:pathToMovie waterPictureName:@"sample02" waterPictureFrame:pictureFrame finish:^(BOOL isFinish) {
+//        if (isFinish) {
+//
+//            [weakSelf createAlbumPathName:@"视频剪辑大湿" patnMovie:pathToMovie];
+//        }
+//    }];
+    
+    //3.
+    //添加水印
+    __weak CZDownloadViewController *weakSelf = self;
+    CGRect pictureFrame = CGRectMake(5, 0.1*movieSize.height, 100, 40);
+    [CDPVideoEditor addWatermarkWithVideoUrl:sampleURL image:image0 frame:pictureFrame completion:^(BOOL success, NSString *error, AVAsset *asset, AVMutableVideoComposition *Composition) {
+        if (success) {
+            
+//            NSString *savePath = [[self createPathToMovie] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",[sampleURL lastPathComponent]]];
+            AVAssetExportSession *avAssetExportSession = [[AVAssetExportSession alloc] initWithAsset:asset presetName:AVAssetExportPreset640x480];
+            [avAssetExportSession setVideoComposition:Composition];
+            [avAssetExportSession setOutputURL:[NSURL fileURLWithPath:pathToMovie]];
+            avAssetExportSession.outputFileType = AVFileTypeQuickTimeMovie;
+            [avAssetExportSession setShouldOptimizeForNetworkUse:YES];
+            [avAssetExportSession exportAsynchronouslyWithCompletionHandler:^(void){
+                
+                XMGLog(@"视频水印添加成功");
+                [weakSelf createAlbumPathName:@"视频剪辑大湿" patnMovie:pathToMovie];
+            }];
+            
+            
+        }else{
+            
+            NSLog(@"addWatermarkWithVideoUrl %@",error);
+        }
+    }];
+
 }
 
 - (void )addWaterPictureToEditVideoUrl:(NSURL *)url outToPath:(NSMutableString *)savePath waterPicture:(UIImageView *)imageView finish:(void (^)(BOOL isFinish))finish{

@@ -23,11 +23,14 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "GHHPhotoManager.h"
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
-@interface LHEditVideoViewController () <ZFPlayerDelegate, SAVideoRangeSliderDelegate>{
+#import "LHVideoRangeSlider.h"
+@interface LHEditVideoViewController () <ZFPlayerDelegate, SAVideoRangeSliderDelegate, LHVideoRangeSliderDelegate>{
 
     CGFloat startValue;
     CGFloat durationValue;
     float seconds;
+    CGFloat _leftPosition;
+    CGFloat _rightPosition;
 }
 @property (weak, nonatomic)  IBOutlet UIView *playerFatherView;
 @property (strong, nonatomic) ZFPlayerView *playerView;
@@ -39,12 +42,13 @@
 @property(nonatomic, strong) AVAsset *videoAsset;
 
 @property (strong, nonatomic) SAVideoRangeSlider *mySAVideoRangeSlider;
-
+@property (strong, nonatomic) LHVideoRangeSlider *lhVideoRangeSlider;
 
 @property(nonatomic, strong)GHHPhotoManager *manager;
 @property(nonatomic, strong)AVURLAsset *avasset;
 @property(nonatomic, strong)AVAssetImageGenerator *generator;
 @property(nonatomic, strong)MPMoviePlayerController *moviePlayer;
+@property(nonatomic, strong)MPMoviePlayerController *moviePlayer1;
 @property(nonatomic, strong)UISlider *slider;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) UIButton *playBtn;
@@ -128,12 +132,34 @@
     
     [self setUpVideoRangeSlider];
     
-    [self setUpSlider];
+//    [self setUpSlider];
+    [self setUpImageView];
     
     
     [self setUpPlayBtn];
     [DZNotificationCenter addObserver:self selector:@selector(getSliderValue:) name:@"LHSliderMoveViewToValue" object:nil];
     
+    
+}
+
+- (void)setUpImageView{
+
+    self.imageView.image = [self.assetLibrary thumbnailImageForVideo:self.videoURL atTime:0];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:self.videoURL];
+    self.moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
+    self.moviePlayer.view.frame = self.imageView.bounds;
+    self.moviePlayer.shouldAutoplay = NO;
+    [self.moviePlayer prepareToPlay];
+    
+    self.moviePlayer1 = [[MPMoviePlayerController alloc] initWithContentURL:self.videoURL];
+    self.moviePlayer1.controlStyle = MPMovieControlStyleEmbedded;
+    self.moviePlayer1.view.frame = self.imageView.bounds;
+    self.moviePlayer1.shouldAutoplay = NO;
+    [self.moviePlayer1 prepareToPlay];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerThumbnailImageRequestDidFinish:) name:MPMoviePlayerThumbnailImageRequestDidFinishNotification object:nil];
     
 }
 
@@ -171,35 +197,30 @@
 //    // 自动播放
 //    [weakSelf.playerView autoPlayTheVideo];
     [self setUpPlayer];
+    
     [sender bringSubviewToFront:self.playerView];
 }
 
 - (void)setUpSlider{
 
-    self.imageView.image = [self.assetLibrary thumbnailImageForVideo:self.videoURL atTime:0];
-    
-    self.manager = [[GHHPhotoManager alloc] init];
+    //test
     NSString *videoURLStr = [[NSBundle mainBundle] pathForResource:@"faceDemo" ofType:@"m4v"];
     NSURL *sampleURL = [NSURL fileURLWithPath:videoURLStr];
     
-    self.avasset = [self.manager requestVideoWithAsset:self.asset];
-    
+    self.imageView.image = [self.assetLibrary thumbnailImageForVideo:self.videoURL atTime:0];
+    self.manager = [[GHHPhotoManager alloc] init];
     self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:self.videoURL];
     self.moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
-    
     self.moviePlayer.view.frame = self.imageView.bounds;
-    
     self.moviePlayer.shouldAutoplay = NO;
-    
     [self.moviePlayer prepareToPlay];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerThumbnailImageRequestDidFinish:) name:MPMoviePlayerThumbnailImageRequestDidFinishNotification object:nil];
-
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     self.slider = [[UISlider alloc] initWithFrame:CGRectMake(0, self.view.lh_Height - 130, ScreenWidth, 100)];
     [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
-    self.slider.maximumValue = [self getVideoDurationTime0:sampleURL];
+    self.slider.maximumValue = [self getVideoDurationTime0:self.videoURL];
     self.slider.minimumValue = 0.0;
     [self.slider setThumbImage:[UIImage imageNamed:@"shuxianbaishe"] forState:UIControlStateNormal];
     [self.view addSubview:self.slider];
@@ -212,7 +233,10 @@
     if (value != nil) {
         NSLog(@"Error creating video thumbnail image. Details: %@", [value debugDescription]);
     } else {
-        self.imageView.image = [userinfo valueForKey:MPMoviePlayerThumbnailImageKey];
+        dispatch_async(dispatch_get_main_queue(), ^{
+          self.imageView.image = [userinfo valueForKey:MPMoviePlayerThumbnailImageKey];
+        });
+        
     }
 }
 
@@ -225,20 +249,55 @@
 }
 
 - (void)setUpVideoRangeSlider{
-
+    
     CGFloat y = 480;
-    SAVideoRangeSlider *mySAVideoRangeSlider = [[SAVideoRangeSlider alloc] initWithFrame:CGRectMake(0, y, ScreenWidth, 70) videoUrl:self.videoURL];
-    self.mySAVideoRangeSlider = mySAVideoRangeSlider;
-    [mySAVideoRangeSlider setPopoverBubbleSize:120 height:60];
+    LHVideoRangeSlider *lhVideoRangeSlider = [[LHVideoRangeSlider alloc] initWithFrame:CGRectMake(0, y, ScreenWidth, 70) videoUrl:self.videoURL];
+    lhVideoRangeSlider.delegate = self;
+    self.lhVideoRangeSlider = lhVideoRangeSlider;
+    [lhVideoRangeSlider setPopoverBubbleSize:120 height:60];
     
-    mySAVideoRangeSlider.delegate = self;
-    mySAVideoRangeSlider.minGap = 10; // optional, seconds
-    mySAVideoRangeSlider.maxGap = [self getVideoDurationTime]; // optional, seconds
-    [self.view addSubview:mySAVideoRangeSlider];
+    lhVideoRangeSlider.delegate = self;
+    lhVideoRangeSlider.minGap = 0.1*[self getVideoDurationTime]; // optional, seconds
+    lhVideoRangeSlider.maxGap = [self getVideoDurationTime]; // optional, seconds
+    [self.view addSubview:lhVideoRangeSlider];
     
-    self.mySAVideoRangeSlider.bubleText.font = [UIFont systemFontOfSize:12];
-    self.mySAVideoRangeSlider.topBorder.backgroundColor = XMGRGBColor(225, 41, 64);
-    self.mySAVideoRangeSlider.bottomBorder.backgroundColor = XMGRGBColor(225, 41, 64);;
+    self.lhVideoRangeSlider.bubleText.font = [UIFont systemFontOfSize:12];
+    self.lhVideoRangeSlider.topBorder.backgroundColor = XMGRGBColor(225, 41, 64);
+    self.lhVideoRangeSlider.bottomBorder.backgroundColor = XMGRGBColor(225, 41, 64);
+    self.lhVideoRangeSlider.sliderLeftColor = XMGWordColor;
+    self.lhVideoRangeSlider.sliderRightColor = XMGWordColor;
+    
+
+//    CGFloat y = 480;
+//    SAVideoRangeSlider *mySAVideoRangeSlider = [[SAVideoRangeSlider alloc] initWithFrame:CGRectMake(0, y, ScreenWidth, 70) videoUrl:self.videoURL];
+//    self.mySAVideoRangeSlider = mySAVideoRangeSlider;
+//    [mySAVideoRangeSlider setPopoverBubbleSize:120 height:60];
+//    
+//    mySAVideoRangeSlider.delegate = self;
+//    mySAVideoRangeSlider.minGap = 10; // optional, seconds
+//    mySAVideoRangeSlider.maxGap = [self getVideoDurationTime]; // optional, seconds
+//    [self.view addSubview:mySAVideoRangeSlider];
+//    
+//    self.mySAVideoRangeSlider.bubleText.font = [UIFont systemFontOfSize:12];
+//    self.mySAVideoRangeSlider.topBorder.backgroundColor = XMGRGBColor(225, 41, 64);
+//    self.mySAVideoRangeSlider.bottomBorder.backgroundColor = XMGRGBColor(225, 41, 64);;
+}
+
+- (void)videoRange:(LHVideoRangeSlider *)videoRange didChangeLeftPosition:(CGFloat)leftPosition rightPosition:(CGFloat)rightPosition{
+
+    XMGLog(@"leftPosition:%f  rightPosition:%f",leftPosition, rightPosition);
+    _leftPosition = leftPosition;
+    _rightPosition = rightPosition;
+
+     
+//    [self.moviePlayer requestThumbnailImagesAtTimes:[NSArray arrayWithObject:[NSNumber numberWithDouble:leftPosition]] timeOption:MPMovieTimeOptionExact];
+//    [self.moviePlayer1 requestThumbnailImagesAtTimes:[NSArray arrayWithObject:[NSNumber numberWithDouble:rightPosition]] timeOption:MPMovieTimeOptionExact];
+    @autoreleasepool {
+     
+        [LHVideoRangeSlider requestThumbnailImagesAtTimesMoviePlayer:self.moviePlayer leftPosition:leftPosition];
+        
+        [LHVideoRangeSlider requestThumbnailImagesAtTimesMoviePlayer:self.moviePlayer1 rightPosition:rightPosition];
+    }
 }
 
 - (void)setUpStartCutBtn{
@@ -340,6 +399,7 @@
     return _playerView;
 }
 
+//裁剪视频
 - (void)startCutBtnClick:(UIButton *)btn{
 
     if (!self.videoURL) {

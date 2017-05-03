@@ -16,6 +16,10 @@
 		2E01081B1EB987EC004CD852 /* CDPVideoRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0108171EB987EC004CD852 /* CDPVideoRecord.m */; };
 		2E01081C1EB987EC004CD852 /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0108191EB987EC004CD852 /* GPUImageBeautifyFilter.m */; };
 		2E01081F1EB988BA004CD852 /* UIImage+XMGImageExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E01081E1EB988BA004CD852 /* UIImage+XMGImageExtension.m */; };
+		2E0108291EB9AEF7004CD852 /* LHResizibleBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0108221EB9AEF7004CD852 /* LHResizibleBubble.m */; };
+		2E01082A1EB9AEF7004CD852 /* LHSliderLeft.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0108241EB9AEF7004CD852 /* LHSliderLeft.m */; };
+		2E01082B1EB9AEF7004CD852 /* LHSliderRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0108261EB9AEF7004CD852 /* LHSliderRight.m */; };
+		2E01082C1EB9AEF7004CD852 /* LHVideoRangeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0108281EB9AEF7004CD852 /* LHVideoRangeSlider.m */; };
 		2E02198E1D4098F40029C1E7 /* XMGWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02198C1D4098F40029C1E7 /* XMGWebViewController.m */; };
 		2E02198F1D4098F40029C1E7 /* XMGWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E02198D1D4098F40029C1E7 /* XMGWebViewController.xib */; };
 		2E0224F41E8B7ED500A82632 /* SAResizibleBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0224ED1E8B7ED500A82632 /* SAResizibleBubble.m */; };
@@ -215,6 +219,14 @@
 		2E0108191EB987EC004CD852 /* GPUImageBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautifyFilter.m; sourceTree = "<group>"; };
 		2E01081D1EB988BA004CD852 /* UIImage+XMGImageExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XMGImageExtension.h"; sourceTree = "<group>"; };
 		2E01081E1EB988BA004CD852 /* UIImage+XMGImageExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XMGImageExtension.m"; sourceTree = "<group>"; };
+		2E0108211EB9AEF7004CD852 /* LHResizibleBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHResizibleBubble.h; sourceTree = "<group>"; };
+		2E0108221EB9AEF7004CD852 /* LHResizibleBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHResizibleBubble.m; sourceTree = "<group>"; };
+		2E0108231EB9AEF7004CD852 /* LHSliderLeft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHSliderLeft.h; sourceTree = "<group>"; };
+		2E0108241EB9AEF7004CD852 /* LHSliderLeft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHSliderLeft.m; sourceTree = "<group>"; };
+		2E0108251EB9AEF7004CD852 /* LHSliderRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHSliderRight.h; sourceTree = "<group>"; };
+		2E0108261EB9AEF7004CD852 /* LHSliderRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHSliderRight.m; sourceTree = "<group>"; };
+		2E0108271EB9AEF7004CD852 /* LHVideoRangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHVideoRangeSlider.h; sourceTree = "<group>"; };
+		2E0108281EB9AEF7004CD852 /* LHVideoRangeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHVideoRangeSlider.m; sourceTree = "<group>"; };
 		2E02198B1D4098F40029C1E7 /* XMGWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGWebViewController.h; sourceTree = "<group>"; };
 		2E02198C1D4098F40029C1E7 /* XMGWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGWebViewController.m; sourceTree = "<group>"; };
 		2E02198D1D4098F40029C1E7 /* XMGWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGWebViewController.xib; sourceTree = "<group>"; };
@@ -544,6 +556,21 @@
 			path = CDPVideoEditor;
 			sourceTree = "<group>";
 		};
+		2E0108201EB9AEF7004CD852 /* LHVideoRangeSlider */ = {
+			isa = PBXGroup;
+			children = (
+				2E0108211EB9AEF7004CD852 /* LHResizibleBubble.h */,
+				2E0108221EB9AEF7004CD852 /* LHResizibleBubble.m */,
+				2E0108231EB9AEF7004CD852 /* LHSliderLeft.h */,
+				2E0108241EB9AEF7004CD852 /* LHSliderLeft.m */,
+				2E0108251EB9AEF7004CD852 /* LHSliderRight.h */,
+				2E0108261EB9AEF7004CD852 /* LHSliderRight.m */,
+				2E0108271EB9AEF7004CD852 /* LHVideoRangeSlider.h */,
+				2E0108281EB9AEF7004CD852 /* LHVideoRangeSlider.m */,
+			);
+			path = LHVideoRangeSlider;
+			sourceTree = "<group>";
+		};
 		2E0219901D40B51E0029C1E7 /* Publish */ = {
 			isa = PBXGroup;
 			children = (
@@ -787,6 +814,7 @@
 		2E81BDB21E8A0D9C0027D6D8 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				2E0108201EB9AEF7004CD852 /* LHVideoRangeSlider */,
 				2E0108121EB987EC004CD852 /* CDPVideoRecord */,
 				2E08F1791EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum */,
 				2EAF956F1EA892BC007C93F9 /* GHHPhotoManager */,
@@ -1478,6 +1506,7 @@
 				2EF0B75F1D23C371006808F5 /* XMGTabBar.m in Sources */,
 				2EEEC3361D38E14E00E803C1 /* XMGCommentCell.m in Sources */,
 				2E04A6451E8F45080054A4B1 /* TZImagePickerController.m in Sources */,
+				2E01082A1EB9AEF7004CD852 /* LHSliderLeft.m in Sources */,
 				2EF34DB11D30AE4A00A34973 /* XMGShowPictureViewController.m in Sources */,
 				2E007C851D4071B10074419C /* XMGSquare.m in Sources */,
 				2E0224F41E8B7ED500A82632 /* SAResizibleBubble.m in Sources */,
@@ -1486,6 +1515,7 @@
 				2E0038BB1D3F216400DEB02F /* UIImageView+XMGExtension.m in Sources */,
 				2E04A6911E8FAC180054A4B1 /* HX_PhotosFooterView.m in Sources */,
 				2EFB66D51D2B885D006174F3 /* XMGRecommendTagCell.m in Sources */,
+				2E0108291EB9AEF7004CD852 /* LHResizibleBubble.m in Sources */,
 				2EF88D0D1D41BDFF00046D37 /* XMGPublishViewController.m in Sources */,
 				2EFB66D11D2B8560006174F3 /* XMGRecommendTagsViewController.m in Sources */,
 				2EFC81911D2F70FA00036D20 /* XMGTopicViewController.m in Sources */,
@@ -1535,6 +1565,7 @@
 				2E04A6861E8FAC180054A4B1 /* DragCellCollectionView.m in Sources */,
 				2E01081F1EB988BA004CD852 /* UIImage+XMGImageExtension.m in Sources */,
 				2EFC81941D2FA51400036D20 /* XMGTopicPictureView.m in Sources */,
+				2E01082C1EB9AEF7004CD852 /* LHVideoRangeSlider.m in Sources */,
 				2E04A68B1E8FAC180054A4B1 /* HX_AlbumViewController.m in Sources */,
 				2E04A6411E8F45080054A4B1 /* TZGifPhotoPreviewController.m in Sources */,
 				2EF350991D3CC06900F005A6 /* XMGCommentHeaderView.m in Sources */,
@@ -1562,6 +1593,7 @@
 				2E81BDD41E8A0DC40027D6D8 /* UIAlertController+ZFPlayerRotation.m in Sources */,
 				2E03176B1E8A3E3E005DA961 /* LHSliderView.m in Sources */,
 				2E007C821D406E7D0074419C /* XMGMeFooterView.m in Sources */,
+				2E01082B1EB9AEF7004CD852 /* LHSliderRight.m in Sources */,
 				2E03174C1E8A3B94005DA961 /* CZDownloadViewController.m in Sources */,
 				2E04A64A1E8F45080054A4B1 /* TZVideoPlayerController.m in Sources */,
 				2E18F8C31D2E4E7D00548ADE /* XMGConst.m in Sources */,

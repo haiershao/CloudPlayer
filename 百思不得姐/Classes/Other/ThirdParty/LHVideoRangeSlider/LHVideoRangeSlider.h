@@ -32,6 +32,7 @@
 //左右两边颜色
 @property (strong, nonatomic) UIColor *sliderLeftColor;
 @property (strong, nonatomic) UIColor *sliderRightColor;
+@property (strong, nonatomic) UIColor *bubbleColor;
 
 - (id)initWithFrame:(CGRect)frame videoUrl:(NSURL *)videoUrl;
 - (void)setPopoverBubbleSize: (CGFloat) width height:(CGFloat)height;

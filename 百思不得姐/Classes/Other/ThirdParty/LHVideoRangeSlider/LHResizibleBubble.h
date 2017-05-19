@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LHResizibleBubble : UIView
-
+@property (strong, nonatomic) UIColor *bubbleColor;
 @end

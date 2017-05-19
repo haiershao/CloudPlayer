@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BabyBluetooth.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DACircularProgress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,12 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0E7174FD6701E8DEF894F18F8D713CCB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>30AB6188C25567EF679E2DFB02DB5DF3</key>
+		<key>48E47B6CF18E8E474F293BB7F5E29F62</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -103,6 +103,16 @@
 			<true/>
 		</dict>
 		<key>586F2DFA9BDCC6675C2546793A69E5CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5E77C19C8615C15252A7A54CB57783E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>95E442D5719BD5B537A60BA4FE794FB4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,7 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C791A0BDDC9DBBE4F255F7082089CE71</key>
+		<key>B35CB295C1DF6B318D4EC0A99AD1982D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4B2770B4D259C9329A5155F4A6AD36D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,12 +157,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E29D703FAAE5744DC0008999B7B542A6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E2C96EF4F104F9D74FDF26933BBE19D9</key>
+		<key>D1853DD7A2415A82C6B2B60D4AE798D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

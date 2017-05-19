@@ -7,8 +7,7 @@
 //
 
 #import "LHEditVideoViewController.h"
-#import <AVFoundation/AVFoundation.h>
-#import <MediaPlayer/MediaPlayer.h>
+//#import <AVFoundation/AVFoundation.h>
 #import <Masonry/Masonry.h>
 #import <ZFDownload/ZFDownloadManager.h>
 #import "ZFPlayer.h"
@@ -17,10 +16,10 @@
 #import "UIView+XMGExtension.h"
 #import "LHSliderView.h"
 #import <MBProgressHUD.h>
-#import <AssetsLibrary/AssetsLibrary.h>
+//#import <AssetsLibrary/AssetsLibrary.h>
 #import "SAVideoRangeSlider.h"
 
-#import <MediaPlayer/MediaPlayer.h>
+//#import <MediaPlayer/MediaPlayer.h>
 #import "GHHPhotoManager.h"
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
 #import "LHVideoRangeSlider.h"
@@ -266,6 +265,7 @@
     self.lhVideoRangeSlider.bottomBorder.backgroundColor = XMGRGBColor(225, 41, 64);
     self.lhVideoRangeSlider.sliderLeftColor = XMGWordColor;
     self.lhVideoRangeSlider.sliderRightColor = XMGWordColor;
+    self.lhVideoRangeSlider.bubbleColor = XMGWordColor;
     
 
 //    CGFloat y = 480;

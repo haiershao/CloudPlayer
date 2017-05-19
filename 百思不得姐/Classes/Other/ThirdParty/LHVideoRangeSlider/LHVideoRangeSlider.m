@@ -125,6 +125,12 @@
     _rightThumb.sliderRightColor = sliderRightColor;
 }
 
+- (void)setBubbleColor:(UIColor *)bubbleColor{
+
+    _bubbleColor = bubbleColor;
+    _popoverBubble.bubbleColor = bubbleColor;
+}
+
 + (void)requestThumbnailImagesAtTimesMoviePlayer:(MPMoviePlayerController *)leftMoviePlayer leftPosition:(CGFloat)leftPosition{
 
     [leftMoviePlayer requestThumbnailImagesAtTimes:[NSArray arrayWithObject:[NSNumber numberWithDouble:leftPosition]] timeOption:MPMovieTimeOptionExact];

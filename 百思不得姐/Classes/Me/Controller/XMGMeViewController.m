@@ -10,8 +10,12 @@
 #import "XMGMeCell.h"
 #import "XMGMeFooterView.h"
 #import "CZDownloadViewController.h"
+#import <BabyBluetooth.h>
 static NSString *XMGMeId = @"me";
-@interface XMGMeViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface XMGMeViewController ()<UITableViewDataSource, UITableViewDelegate>{
+    
+    BabyBluetooth *_baby;
+}
 
 @end
 
@@ -23,6 +27,21 @@ static NSString *XMGMeId = @"me";
     [self setUpNav];
     
     [self setUpTableView];
+    
+    //创建蓝牙
+    [self setUpBabyBluetooth];
+}
+
+- (void)setUpBabyBluetooth{
+        
+    //初始化BabyBluetooth 蓝牙库
+    _baby = [BabyBluetooth shareBabyBluetooth];
+    //设置蓝牙委托
+    //    [self babyDelegate];
+    //设置委托后直接可以使用，无需等待CBCentralManagerStatePoweredOn状态
+    _baby.scanForPeripherals().begin();
+    
+    
 }
 
 - (void)setUpTableView{

@@ -31,4 +31,5 @@ target 'Cloud Player' do
     pod 'DACircularProgress'
     pod 'SVProgressHUD'
     pod 'AFNetworking'
+    pod 'BabyBluetooth'
 end

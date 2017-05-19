@@ -18,6 +18,7 @@
 @property (nonatomic, weak) UIView *titlesView;
 /** 底部的所有内容 */
 @property (nonatomic, weak) UIScrollView *contentView;
+
 @end
 
 @implementation XMGEssenceViewController
@@ -181,4 +182,6 @@
     
     [self titleClick:self.titlesView.subviews[index]];
 }
+
+
 @end

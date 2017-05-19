@@ -22,6 +22,7 @@
 #import "UIView+XMGExtension.h"
 #import "UIImage+XMGImageExtension.h"
 #import "CDPVideoEditor.h"
+#import <SystemConfiguration/CaptiveNetwork.h>
 
 #define  DownloadManager  [ZFDownloadManager sharedDownloadManager]
 #define AUDIO_URL [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"月半弯" ofType:@"mp3"]]
@@ -165,7 +166,23 @@
     
     [self setUpRightBarButtonItems];
     
+    //获取Wi-Fi名称
+    [self getWiFiName];
 //    [self setUpLeftBarButtonItem];
+}
+
+- (void)getWiFiName{
+
+    id info = nil;
+    NSArray *ifs = (__bridge_transfer id)CNCopySupportedInterfaces();
+    for (NSString *ifnam in ifs) {
+        info = (__bridge_transfer id)CNCopyCurrentNetworkInfo((__bridge CFStringRef)ifnam);
+        NSString *str = info[@"SSID"];
+        NSString *str2 = info[@"BSSID"];
+        NSString *str3 = [[ NSString alloc] initWithData:info[@"SSIDDATA"] encoding:NSUTF8StringEncoding];
+        NSLog(@"Wi-Fi名称：%@  强度：%@",str, str2);
+        
+    }
 }
 
 - (void)setUpLeftBarButtonItem{

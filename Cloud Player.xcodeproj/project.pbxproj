@@ -180,6 +180,10 @@
 		2EFC81941D2FA51400036D20 /* XMGTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC81931D2FA51400036D20 /* XMGTopicPictureView.m */; };
 		2EFC81961D2FA52400036D20 /* XMGTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EFC81951D2FA52400036D20 /* XMGTopicPictureView.xib */; };
 		63FF27A5A174190A60C9AE93 /* libPods-Cloud Player.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E38B9EFC0C8C664464B5BE /* libPods-Cloud Player.a */; };
+		6C9AB5AE1F307DDB00C8ECD3 /* XMGRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9AB5AA1F307DDB00C8ECD3 /* XMGRecordViewController.m */; };
+		6C9AB5AF1F307DDB00C8ECD3 /* XMGRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C9AB5AB1F307DDB00C8ECD3 /* XMGRecordViewController.xib */; };
+		6C9AB5B21F307E9600C8ECD3 /* XMGRecordEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9AB5B11F307E9600C8ECD3 /* XMGRecordEngine.m */; };
+		6C9AB5B51F30828A00C8ECD3 /* XMGRecordEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9AB5B41F30828A00C8ECD3 /* XMGRecordEncoder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -506,6 +510,13 @@
 		2EFC81931D2FA51400036D20 /* XMGTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopicPictureView.m; sourceTree = "<group>"; };
 		2EFC81951D2FA52400036D20 /* XMGTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicPictureView.xib; sourceTree = "<group>"; };
 		32E38B9EFC0C8C664464B5BE /* libPods-Cloud Player.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cloud Player.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C9AB5A91F307DDB00C8ECD3 /* XMGRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecordViewController.h; sourceTree = "<group>"; };
+		6C9AB5AA1F307DDB00C8ECD3 /* XMGRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecordViewController.m; sourceTree = "<group>"; };
+		6C9AB5AB1F307DDB00C8ECD3 /* XMGRecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecordViewController.xib; sourceTree = "<group>"; };
+		6C9AB5B01F307E9600C8ECD3 /* XMGRecordEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecordEngine.h; sourceTree = "<group>"; };
+		6C9AB5B11F307E9600C8ECD3 /* XMGRecordEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecordEngine.m; sourceTree = "<group>"; };
+		6C9AB5B31F30828A00C8ECD3 /* XMGRecordEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecordEncoder.h; sourceTree = "<group>"; };
+		6C9AB5B41F30828A00C8ECD3 /* XMGRecordEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecordEncoder.m; sourceTree = "<group>"; };
 		AD9B0C60943B9E392D648F88 /* Pods-Cloud Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloud Player.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cloud Player/Pods-Cloud Player.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -935,6 +946,7 @@
 		2EF0B7391D23C371006808F5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6C9AB5A21F3062B800C8ECD3 /* Record */,
 				2ED23EDA1E8E3DCE00D3B4D1 /* SubPublish */,
 				2E0317581E8A3E3E005DA961 /* SubProfile */,
 				2E0219901D40B51E0029C1E7 /* Publish */,
@@ -1253,6 +1265,44 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6C9AB5A21F3062B800C8ECD3 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				6C9AB5A81F307DDB00C8ECD3 /* Controller */,
+				6C9AB5AC1F307DDB00C8ECD3 /* RecordTool */,
+				6C9AB5AD1F307DDB00C8ECD3 /* View */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		6C9AB5A81F307DDB00C8ECD3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6C9AB5A91F307DDB00C8ECD3 /* XMGRecordViewController.h */,
+				6C9AB5AA1F307DDB00C8ECD3 /* XMGRecordViewController.m */,
+				6C9AB5AB1F307DDB00C8ECD3 /* XMGRecordViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6C9AB5AC1F307DDB00C8ECD3 /* RecordTool */ = {
+			isa = PBXGroup;
+			children = (
+				6C9AB5B01F307E9600C8ECD3 /* XMGRecordEngine.h */,
+				6C9AB5B11F307E9600C8ECD3 /* XMGRecordEngine.m */,
+				6C9AB5B31F30828A00C8ECD3 /* XMGRecordEncoder.h */,
+				6C9AB5B41F30828A00C8ECD3 /* XMGRecordEncoder.m */,
+			);
+			path = RecordTool;
+			sourceTree = "<group>";
+		};
+		6C9AB5AD1F307DDB00C8ECD3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CD782536FD48F58E262410BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1341,7 +1391,7 @@
 				TargetAttributes = {
 					2E5A7D901D236BA200170E26 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = BZE7AZLL99;
+						DevelopmentTeam = J8JBE22VWC;
 					};
 					2E5A7DA91D236BA200170E26 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1402,6 +1452,7 @@
 				2E02198F1D4098F40029C1E7 /* XMGWebViewController.xib in Resources */,
 				2EFB66D61D2B885D006174F3 /* XMGRecommendTagCell.xib in Resources */,
 				2EF6DC141D3760920055E9FB /* XMGCommentViewController.xib in Resources */,
+				6C9AB5AF1F307DDB00C8ECD3 /* XMGRecordViewController.xib in Resources */,
 				2E81BDE21E8A0F0D0027D6D8 /* InfoPlist.strings in Resources */,
 				2E0317751E8A44EF005DA961 /* 月半弯.mp3 in Resources */,
 				2E04A6A31E8FAC180054A4B1 /* qz_phototlist_shadow_full@2x.png in Resources */,
@@ -1509,6 +1560,7 @@
 				2E01082A1EB9AEF7004CD852 /* LHSliderLeft.m in Sources */,
 				2EF34DB11D30AE4A00A34973 /* XMGShowPictureViewController.m in Sources */,
 				2E007C851D4071B10074419C /* XMGSquare.m in Sources */,
+				6C9AB5AE1F307DDB00C8ECD3 /* XMGRecordViewController.m in Sources */,
 				2E0224F41E8B7ED500A82632 /* SAResizibleBubble.m in Sources */,
 				2EF88D101D41BDFF00046D37 /* XMGPlaceholderTextView.m in Sources */,
 				2E81BDD81E8A0DC40027D6D8 /* UIView+CustomControlView.m in Sources */,
@@ -1530,6 +1582,7 @@
 				2E04A6401E8F45080054A4B1 /* TZAssetModel.m in Sources */,
 				2E0317681E8A3E3E005DA961 /* LHMergeVideoController.m in Sources */,
 				2E04A6421E8F45080054A4B1 /* TZImageCropManager.m in Sources */,
+				6C9AB5B21F307E9600C8ECD3 /* XMGRecordEngine.m in Sources */,
 				2E86BCA91D3F864000399188 /* XMGMeCell.m in Sources */,
 				2E04A6941E8FAC180054A4B1 /* HX_VideoManager.m in Sources */,
 				2E0317711E8A3F07005DA961 /* ZFNavigationController.m in Sources */,
@@ -1617,6 +1670,7 @@
 				2EF0B75B1D23C371006808F5 /* UIBarButtonItem+XMGEXtension.m in Sources */,
 				2E0038BE1D3F21CF00DEB02F /* UIImage+XMGExtension.m in Sources */,
 				2E0224F61E8B7ED500A82632 /* SASliderRight.m in Sources */,
+				6C9AB5B51F30828A00C8ECD3 /* XMGRecordEncoder.m in Sources */,
 				2E04A6511E8FA49D0054A4B1 /* LHAssetCell.m in Sources */,
 				2E04A68E1E8FAC180054A4B1 /* HX_AssetManager.m in Sources */,
 				2EFA90FC1D4212C200DC2698 /* XMGTagButton.m in Sources */,
@@ -1762,7 +1816,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				DEVELOPMENT_TEAM = BZE7AZLL99;
+				DEVELOPMENT_TEAM = J8JBE22VWC;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
@@ -1779,7 +1833,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				DEVELOPMENT_TEAM = BZE7AZLL99;
+				DEVELOPMENT_TEAM = J8JBE22VWC;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";

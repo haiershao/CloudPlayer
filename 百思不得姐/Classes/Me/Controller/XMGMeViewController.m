@@ -11,6 +11,9 @@
 #import "XMGMeFooterView.h"
 #import "CZDownloadViewController.h"
 #import <BabyBluetooth.h>
+#import "XMGRecordViewController.h"
+
+
 static NSString *XMGMeId = @"me";
 @interface XMGMeViewController ()<UITableViewDataSource, UITableViewDelegate>{
     
@@ -99,7 +102,12 @@ static NSString *XMGMeId = @"me";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
+        
+        XMGRecordViewController *recordVc = [XMGRecordViewController recordViewController];
+        [self.navigationController pushViewController:recordVc animated:YES];
+    }else if (indexPath.section == 1){
+    
         CZDownloadViewController *downloadVc = [CZDownloadViewController downloadViewController];
         [self.navigationController pushViewController:downloadVc animated:YES];
     }

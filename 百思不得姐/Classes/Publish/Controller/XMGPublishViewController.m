@@ -17,6 +17,7 @@
 #import "LHImagePickerController.h"
 #import "HX_AlbumViewController.h"
 #import "HX_PhotosViewController.h"
+#import "XMGRecordViewController.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -121,7 +122,12 @@ static CGFloat const XMGSpringFactor = 10;
             XMGLog(@"发声音");
         
         }else if (button.tag == 4) {
+            XMGRecordViewController *recordVc = [XMGRecordViewController recordViewController];
+            XMGNavigationController *nav = [[XMGNavigationController alloc] initWithRootViewController:recordVc];
             
+            UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;
+            [root presentViewController:nav animated:YES completion:nil];
+
             XMGLog(@"审帖");
         }else if (button.tag == 5) {
             

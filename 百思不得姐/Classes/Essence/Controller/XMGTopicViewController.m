@@ -136,7 +136,7 @@ static NSString * const XMGTopicCellId = @"topic";
         self.maxtime = responseObject[@"info"][@"maxtime"];
         
         self.topics = [XMGTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];;
-        XMGLog(@"loadNewTopics %@",responseObject[@"list"]);
+//        XMGLog(@"loadNewTopics %@",responseObject[@"list"]);
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
         //下啦刷新页数置0

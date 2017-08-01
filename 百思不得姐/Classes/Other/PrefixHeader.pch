@@ -16,7 +16,7 @@
 #import "UIImageView+XMGExtension.h"
 #import "UIImage+XMGExtension.h"
 #import <Photos/Photos.h>
-
+#import <Masonry.h>
 
 #ifdef DEBUG
 #define XMGLog(...) NSLog(__VA_ARGS__)

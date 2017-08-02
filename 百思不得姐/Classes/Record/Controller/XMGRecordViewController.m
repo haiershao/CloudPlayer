@@ -67,9 +67,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor orangeColor];
     if (_recordEngine == nil) {
-        
-        [self adjustSubViewsConstraint:UIDeviceOrientationPortrait];
         self.recordEngine.recordView = self.view;
+        self.recordEngine.previewLayer.connection.videoOrientation = AVCaptureVideoOrientationPortrait;
     }
     
     [self setUpSubViews];

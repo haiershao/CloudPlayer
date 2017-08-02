@@ -12,7 +12,7 @@
 #import "CZDownloadViewController.h"
 #import <BabyBluetooth.h>
 #import "XMGRecordViewController.h"
-
+#import "XMGPanoramaViewController.h"
 
 static NSString *XMGMeId = @"me";
 @interface XMGMeViewController ()<UITableViewDataSource, UITableViewDelegate>{
@@ -116,6 +116,8 @@ static NSString *XMGMeId = @"me";
 
 - (void)settingClick{
     XMGLogFunc;
+    XMGPanoramaViewController *panoramaVc = [XMGPanoramaViewController panoramaViewController];
+    [self.navigationController pushViewController:panoramaVc animated:YES];
 }
 
 - (void)moonClick{

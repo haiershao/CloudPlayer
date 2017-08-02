@@ -180,11 +180,30 @@
 		2EFC81941D2FA51400036D20 /* XMGTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC81931D2FA51400036D20 /* XMGTopicPictureView.m */; };
 		2EFC81961D2FA52400036D20 /* XMGTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EFC81951D2FA52400036D20 /* XMGTopicPictureView.xib */; };
 		63FF27A5A174190A60C9AE93 /* libPods-Cloud Player.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E38B9EFC0C8C664464B5BE /* libPods-Cloud Player.a */; };
-		6C8B6DE41F31B2EB00086669 /* XMGPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8B6DE31F31B2EB00086669 /* XMGPreviewView.m */; };
+		6C8B6DE61F31C29A00086669 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DE51F31C29A00086669 /* QuartzCore.framework */; };
+		6C8B6DE81F31C2A600086669 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DE71F31C2A600086669 /* CoreImage.framework */; };
+		6C8B6DEA1F31C2B300086669 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DE91F31C2B300086669 /* CoreAudio.framework */; };
+		6C8B6DEC1F31C2C000086669 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DEB1F31C2C000086669 /* AssetsLibrary.framework */; };
+		6C8B6DEE1F31C2C800086669 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DED1F31C2C800086669 /* SystemConfiguration.framework */; };
+		6C8B6DF01F31C2D200086669 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DEF1F31C2D200086669 /* Accelerate.framework */; };
+		6C8B6DF21F31C2E200086669 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DF11F31C2E200086669 /* CoreGraphics.framework */; };
+		6C8B6DF41F31C2EC00086669 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DF31F31C2EC00086669 /* AudioToolbox.framework */; };
+		6C8B6DF61F31C2F700086669 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DF51F31C2F700086669 /* AVFoundation.framework */; };
+		6C8B6DF81F31C30800086669 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DF71F31C30700086669 /* CoreVideo.framework */; };
+		6C8B6DFA1F31C31200086669 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DF91F31C31200086669 /* CoreMedia.framework */; };
+		6C8B6DFC1F31C32400086669 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DFB1F31C32400086669 /* MediaPlayer.framework */; };
+		6C8B6E271F31CAB300086669 /* XMGPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8B6E261F31CAB300086669 /* XMGPreviewView.m */; };
 		6C9AB5AE1F307DDB00C8ECD3 /* XMGRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9AB5AA1F307DDB00C8ECD3 /* XMGRecordViewController.m */; };
 		6C9AB5AF1F307DDB00C8ECD3 /* XMGRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C9AB5AB1F307DDB00C8ECD3 /* XMGRecordViewController.xib */; };
 		6C9AB5B21F307E9600C8ECD3 /* XMGRecordEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9AB5B11F307E9600C8ECD3 /* XMGRecordEngine.m */; };
 		6C9AB5B51F30828A00C8ECD3 /* XMGRecordEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9AB5B41F30828A00C8ECD3 /* XMGRecordEncoder.m */; };
+		6CE7F9D51F31CC7C00583021 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE7F9D41F31CC7C00583021 /* opencv2.framework */; };
+		6CE7FA161F31CDC400583021 /* XMGPanoramaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7FA141F31CDC400583021 /* XMGPanoramaViewController.m */; };
+		6CE7FA171F31CDC400583021 /* XMGPanoramaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CE7FA151F31CDC400583021 /* XMGPanoramaViewController.xib */; };
+		6CE7FA211F31D09F00583021 /* CVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7FA1A1F31D09F00583021 /* CVWrapper.mm */; };
+		6CE7FA221F31D09F00583021 /* stitching.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7FA1B1F31D09F00583021 /* stitching.cpp */; };
+		6CE7FA231F31D09F00583021 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7FA1E1F31D09F00583021 /* UIImage+OpenCV.mm */; };
+		6CE7FA241F31D09F00583021 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7FA201F31D09F00583021 /* UIImage+Rotate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -511,8 +530,20 @@
 		2EFC81931D2FA51400036D20 /* XMGTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopicPictureView.m; sourceTree = "<group>"; };
 		2EFC81951D2FA52400036D20 /* XMGTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicPictureView.xib; sourceTree = "<group>"; };
 		32E38B9EFC0C8C664464B5BE /* libPods-Cloud Player.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cloud Player.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C8B6DE21F31B2EB00086669 /* XMGPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPreviewView.h; sourceTree = "<group>"; };
-		6C8B6DE31F31B2EB00086669 /* XMGPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPreviewView.m; sourceTree = "<group>"; };
+		6C8B6DE51F31C29A00086669 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6C8B6DE71F31C2A600086669 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		6C8B6DE91F31C2B300086669 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		6C8B6DEB1F31C2C000086669 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		6C8B6DED1F31C2C800086669 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6C8B6DEF1F31C2D200086669 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		6C8B6DF11F31C2E200086669 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6C8B6DF31F31C2EC00086669 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6C8B6DF51F31C2F700086669 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6C8B6DF71F31C30700086669 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		6C8B6DF91F31C31200086669 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		6C8B6DFB1F31C32400086669 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		6C8B6E251F31CAB300086669 /* XMGPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPreviewView.h; sourceTree = "<group>"; };
+		6C8B6E261F31CAB300086669 /* XMGPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPreviewView.m; sourceTree = "<group>"; };
 		6C9AB5A91F307DDB00C8ECD3 /* XMGRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecordViewController.h; sourceTree = "<group>"; };
 		6C9AB5AA1F307DDB00C8ECD3 /* XMGRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecordViewController.m; sourceTree = "<group>"; };
 		6C9AB5AB1F307DDB00C8ECD3 /* XMGRecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecordViewController.xib; sourceTree = "<group>"; };
@@ -520,6 +551,18 @@
 		6C9AB5B11F307E9600C8ECD3 /* XMGRecordEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecordEngine.m; sourceTree = "<group>"; };
 		6C9AB5B31F30828A00C8ECD3 /* XMGRecordEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecordEncoder.h; sourceTree = "<group>"; };
 		6C9AB5B41F30828A00C8ECD3 /* XMGRecordEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecordEncoder.m; sourceTree = "<group>"; };
+		6CE7F9D41F31CC7C00583021 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		6CE7FA131F31CDC400583021 /* XMGPanoramaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPanoramaViewController.h; sourceTree = "<group>"; };
+		6CE7FA141F31CDC400583021 /* XMGPanoramaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPanoramaViewController.m; sourceTree = "<group>"; };
+		6CE7FA151F31CDC400583021 /* XMGPanoramaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGPanoramaViewController.xib; sourceTree = "<group>"; };
+		6CE7FA191F31D09F00583021 /* CVWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVWrapper.h; sourceTree = "<group>"; };
+		6CE7FA1A1F31D09F00583021 /* CVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CVWrapper.mm; sourceTree = "<group>"; };
+		6CE7FA1B1F31D09F00583021 /* stitching.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stitching.cpp; sourceTree = "<group>"; };
+		6CE7FA1C1F31D09F00583021 /* stitching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stitching.h; sourceTree = "<group>"; };
+		6CE7FA1D1F31D09F00583021 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		6CE7FA1E1F31D09F00583021 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		6CE7FA1F1F31D09F00583021 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		6CE7FA201F31D09F00583021 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
 		AD9B0C60943B9E392D648F88 /* Pods-Cloud Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloud Player.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cloud Player/Pods-Cloud Player.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -528,6 +571,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C8B6DFC1F31C32400086669 /* MediaPlayer.framework in Frameworks */,
+				6C8B6DFA1F31C31200086669 /* CoreMedia.framework in Frameworks */,
+				6C8B6DF81F31C30800086669 /* CoreVideo.framework in Frameworks */,
+				6C8B6DF61F31C2F700086669 /* AVFoundation.framework in Frameworks */,
+				6C8B6DF41F31C2EC00086669 /* AudioToolbox.framework in Frameworks */,
+				6C8B6DF21F31C2E200086669 /* CoreGraphics.framework in Frameworks */,
+				6C8B6DF01F31C2D200086669 /* Accelerate.framework in Frameworks */,
+				6C8B6DEE1F31C2C800086669 /* SystemConfiguration.framework in Frameworks */,
+				6CE7F9D51F31CC7C00583021 /* opencv2.framework in Frameworks */,
+				6C8B6DEC1F31C2C000086669 /* AssetsLibrary.framework in Frameworks */,
+				6C8B6DEA1F31C2B300086669 /* CoreAudio.framework in Frameworks */,
+				6C8B6DE81F31C2A600086669 /* CoreImage.framework in Frameworks */,
+				6C8B6DE61F31C29A00086669 /* QuartzCore.framework in Frameworks */,
 				63FF27A5A174190A60C9AE93 /* libPods-Cloud Player.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -828,6 +884,7 @@
 		2E81BDB21E8A0D9C0027D6D8 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				6CE7FA181F31D09F00583021 /* Panorama */,
 				2E0108201EB9AEF7004CD852 /* LHVideoRangeSlider */,
 				2E0108121EB987EC004CD852 /* CDPVideoRecord */,
 				2E08F1791EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum */,
@@ -1268,11 +1325,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		6C8B6DE11F31B2C200086669 /* View */ = {
+		6C8B6E241F31CAB300086669 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6C8B6DE21F31B2EB00086669 /* XMGPreviewView.h */,
-				6C8B6DE31F31B2EB00086669 /* XMGPreviewView.m */,
+				6C8B6E251F31CAB300086669 /* XMGPreviewView.h */,
+				6C8B6E261F31CAB300086669 /* XMGPreviewView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1280,6 +1337,7 @@
 		6C9AB5A21F3062B800C8ECD3 /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				6C8B6E241F31CAB300086669 /* View */,
 				6C9AB5A81F307DDB00C8ECD3 /* Controller */,
 				6C9AB5AC1F307DDB00C8ECD3 /* RecordTool */,
 				6C9AB5AD1F307DDB00C8ECD3 /* View */,
@@ -1290,10 +1348,12 @@
 		6C9AB5A81F307DDB00C8ECD3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6C8B6DE11F31B2C200086669 /* View */,
 				6C9AB5A91F307DDB00C8ECD3 /* XMGRecordViewController.h */,
 				6C9AB5AA1F307DDB00C8ECD3 /* XMGRecordViewController.m */,
 				6C9AB5AB1F307DDB00C8ECD3 /* XMGRecordViewController.xib */,
+				6CE7FA131F31CDC400583021 /* XMGPanoramaViewController.h */,
+				6CE7FA141F31CDC400583021 /* XMGPanoramaViewController.m */,
+				6CE7FA151F31CDC400583021 /* XMGPanoramaViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1316,9 +1376,37 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6CE7FA181F31D09F00583021 /* Panorama */ = {
+			isa = PBXGroup;
+			children = (
+				6CE7FA191F31D09F00583021 /* CVWrapper.h */,
+				6CE7FA1A1F31D09F00583021 /* CVWrapper.mm */,
+				6CE7FA1B1F31D09F00583021 /* stitching.cpp */,
+				6CE7FA1C1F31D09F00583021 /* stitching.h */,
+				6CE7FA1D1F31D09F00583021 /* UIImage+OpenCV.h */,
+				6CE7FA1E1F31D09F00583021 /* UIImage+OpenCV.mm */,
+				6CE7FA1F1F31D09F00583021 /* UIImage+Rotate.h */,
+				6CE7FA201F31D09F00583021 /* UIImage+Rotate.m */,
+			);
+			path = Panorama;
+			sourceTree = "<group>";
+		};
 		CD782536FD48F58E262410BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CE7F9D41F31CC7C00583021 /* opencv2.framework */,
+				6C8B6DFB1F31C32400086669 /* MediaPlayer.framework */,
+				6C8B6DF91F31C31200086669 /* CoreMedia.framework */,
+				6C8B6DF71F31C30700086669 /* CoreVideo.framework */,
+				6C8B6DF51F31C2F700086669 /* AVFoundation.framework */,
+				6C8B6DF31F31C2EC00086669 /* AudioToolbox.framework */,
+				6C8B6DF11F31C2E200086669 /* CoreGraphics.framework */,
+				6C8B6DEF1F31C2D200086669 /* Accelerate.framework */,
+				6C8B6DED1F31C2C800086669 /* SystemConfiguration.framework */,
+				6C8B6DEB1F31C2C000086669 /* AssetsLibrary.framework */,
+				6C8B6DE91F31C2B300086669 /* CoreAudio.framework */,
+				6C8B6DE71F31C2A600086669 /* CoreImage.framework */,
+				6C8B6DE51F31C29A00086669 /* QuartzCore.framework */,
 				32E38B9EFC0C8C664464B5BE /* libPods-Cloud Player.a */,
 			);
 			name = Frameworks;
@@ -1446,6 +1534,7 @@
 				2E04A69A1E8FAC180054A4B1 /* album_checkbox_gray@2x.png in Resources */,
 				2E04A6981E8FAC180054A4B1 /* activate_friends_seleted@2x.png in Resources */,
 				2EFC81961D2FA52400036D20 /* XMGTopicPictureView.xib in Resources */,
+				6CE7FA171F31CDC400583021 /* XMGPanoramaViewController.xib in Resources */,
 				2E0317551E8A3D3C005DA961 /* CZDownloadedCell.xib in Resources */,
 				2ED0ABD41D263DBA00EBEEF1 /* XMGRecommendUserCell.xib in Resources */,
 				2E04A6A51E8FAC180054A4B1 /* VideoSendIcon@2x.png in Resources */,
@@ -1579,6 +1668,7 @@
 				2E81BDD81E8A0DC40027D6D8 /* UIView+CustomControlView.m in Sources */,
 				2E0038BB1D3F216400DEB02F /* UIImageView+XMGExtension.m in Sources */,
 				2E04A6911E8FAC180054A4B1 /* HX_PhotosFooterView.m in Sources */,
+				6CE7FA161F31CDC400583021 /* XMGPanoramaViewController.m in Sources */,
 				2EFB66D51D2B885D006174F3 /* XMGRecommendTagCell.m in Sources */,
 				2E0108291EB9AEF7004CD852 /* LHResizibleBubble.m in Sources */,
 				2EF88D0D1D41BDFF00046D37 /* XMGPublishViewController.m in Sources */,
@@ -1629,6 +1719,7 @@
 				2E01081C1EB987EC004CD852 /* GPUImageBeautifyFilter.m in Sources */,
 				2ED23EE51E8E44BF00D3B4D1 /* XMGPictureCollectionCell.m in Sources */,
 				2E04A6861E8FAC180054A4B1 /* DragCellCollectionView.m in Sources */,
+				6CE7FA231F31D09F00583021 /* UIImage+OpenCV.mm in Sources */,
 				2E01081F1EB988BA004CD852 /* UIImage+XMGImageExtension.m in Sources */,
 				2EFC81941D2FA51400036D20 /* XMGTopicPictureView.m in Sources */,
 				2E01082C1EB9AEF7004CD852 /* LHVideoRangeSlider.m in Sources */,
@@ -1643,13 +1734,15 @@
 				2ED0ABD31D263DBA00EBEEF1 /* XMGRecommendUserCell.m in Sources */,
 				2E81BDD31E8A0DC40027D6D8 /* ASValueTrackingSlider.m in Sources */,
 				2E81BDDE1E8A0DC40027D6D8 /* ZFPlayerModel.m in Sources */,
+				6CE7FA221F31D09F00583021 /* stitching.cpp in Sources */,
 				2E04A63F1E8F45080054A4B1 /* TZAssetCell.m in Sources */,
 				2EFAA8681D2502D400C12B1D /* XMGRecommendViewController.m in Sources */,
 				2EF3509F1D3CD41D00F005A6 /* XMGTopWindow.m in Sources */,
+				6CE7FA241F31D09F00583021 /* UIImage+Rotate.m in Sources */,
 				2EBCB08A1D2CAEBB00E31B4F /* XMGVerticalButton.m in Sources */,
 				2E81BDD21E8A0DC40027D6D8 /* ASValuePopUpView.m in Sources */,
-				6C8B6DE41F31B2EB00086669 /* XMGPreviewView.m in Sources */,
 				2EF0B75D1D23C371006808F5 /* XMGTabBarController.m in Sources */,
+				6CE7FA211F31D09F00583021 /* CVWrapper.mm in Sources */,
 				2E01081A1EB987EC004CD852 /* CDPVideoEditor.m in Sources */,
 				2EF1716B1D2F510C00FA9896 /* NSDate+XMGExtension.m in Sources */,
 				2E08F17C1EA9A95800CD82F6 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
@@ -1685,6 +1778,7 @@
 				2E0038BE1D3F21CF00DEB02F /* UIImage+XMGExtension.m in Sources */,
 				2E0224F61E8B7ED500A82632 /* SASliderRight.m in Sources */,
 				6C9AB5B51F30828A00C8ECD3 /* XMGRecordEncoder.m in Sources */,
+				6C8B6E271F31CAB300086669 /* XMGPreviewView.m in Sources */,
 				2E04A6511E8FA49D0054A4B1 /* LHAssetCell.m in Sources */,
 				2E04A68E1E8FAC180054A4B1 /* HX_AssetManager.m in Sources */,
 				2EFA90FC1D4212C200DC2698 /* XMGTagButton.m in Sources */,
@@ -1831,6 +1925,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				DEVELOPMENT_TEAM = J8JBE22VWC;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
@@ -1848,6 +1947,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				DEVELOPMENT_TEAM = J8JBE22VWC;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";

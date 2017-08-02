@@ -8,7 +8,11 @@
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
+#ifdef __cplusplus
+#import <opencv2/opencv.hpp>
+#endif
 
+#ifdef __OBJC__
 #import "UIView+XMGExtension.h"
 #import "UIBarButtonItem+XMGEXtension.h"
 #import "XMGConst.h"
@@ -17,6 +21,8 @@
 #import "UIImage+XMGExtension.h"
 #import <Photos/Photos.h>
 #import <Masonry.h>
+#endif
+
 
 #ifdef DEBUG
 #define XMGLog(...) NSLog(__VA_ARGS__)

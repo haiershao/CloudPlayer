@@ -147,12 +147,12 @@
             [_recordSession addOutput:self.audioOutput];
         }
         //设置视频录制的方向
-        UIInterfaceOrientation statusBarOrientation = [UIApplication sharedApplication].statusBarOrientation;
-        AVCaptureVideoOrientation initialVideoOrientation = AVCaptureVideoOrientationPortrait;
-        if ( statusBarOrientation != UIInterfaceOrientationUnknown ) {
-            initialVideoOrientation = (AVCaptureVideoOrientation)statusBarOrientation;
-        }
-        self.videoConnection.videoOrientation = initialVideoOrientation;
+//        UIInterfaceOrientation statusBarOrientation = [UIApplication sharedApplication].statusBarOrientation;
+//        AVCaptureVideoOrientation initialVideoOrientation = AVCaptureVideoOrientationPortrait;
+//        if ( statusBarOrientation != UIInterfaceOrientationUnknown ) {
+//            initialVideoOrientation = (AVCaptureVideoOrientation)statusBarOrientation;
+//        }
+//        self.videoConnection.videoOrientation = AVCaptureVideoOrientationPortrait;
     }
     return _recordSession;
 }

@@ -14,7 +14,7 @@
 @interface XMGRecordEngine : NSObject
 @property (atomic, strong) NSString *videoPath;//视频路径
 @property (weak, nonatomic) id<WCLRecordEngineDelegate>delegate;
-
+@property (strong, nonatomic) UIView *recordView;
 //捕获到的视频呈现的layer
 - (AVCaptureVideoPreviewLayer *)previewLayer;
 //启动录制功能

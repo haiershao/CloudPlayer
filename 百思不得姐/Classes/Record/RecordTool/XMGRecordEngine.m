@@ -147,7 +147,12 @@
             [_recordSession addOutput:self.audioOutput];
         }
         //设置视频录制的方向
-        self.videoConnection.videoOrientation = AVCaptureVideoOrientationPortrait;
+        UIInterfaceOrientation statusBarOrientation = [UIApplication sharedApplication].statusBarOrientation;
+        AVCaptureVideoOrientation initialVideoOrientation = AVCaptureVideoOrientationPortrait;
+        if ( statusBarOrientation != UIInterfaceOrientationUnknown ) {
+            initialVideoOrientation = (AVCaptureVideoOrientation)statusBarOrientation;
+        }
+        self.videoConnection.videoOrientation = initialVideoOrientation;
     }
     return _recordSession;
 }
@@ -158,7 +163,7 @@
         NSError *error;
         _backCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self backCamera] error:&error];
         if (error) {
-            NSLog(@"获取后置摄像头失败~");
+            NSLog(@"获取后置摄像头失败~%@",[error description]);
         }
     }
     return _backCameraInput;
@@ -170,7 +175,7 @@
         NSError *error;
         _frontCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self frontCamera] error:&error];
         if (error) {
-            NSLog(@"获取前置摄像头失败~");
+            NSLog(@"获取前置摄像头失败~%@",[error description]);
         }
     }
     return _frontCameraInput;
@@ -183,7 +188,7 @@
         NSError *error;
         _audioMicInput = [AVCaptureDeviceInput deviceInputWithDevice:mic error:&error];
         if (error) {
-            NSLog(@"获取麦克风失败~");
+            NSLog(@"获取麦克风失败~%@",[error description]);
         }
     }
     return _audioMicInput;
@@ -228,13 +233,19 @@
 //捕获到的视频呈现的layer
 - (AVCaptureVideoPreviewLayer *)previewLayer {
     if (_previewLayer == nil) {
-        //通过AVCaptureSession初始化
-        AVCaptureVideoPreviewLayer *preview = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.recordSession];
-        //设置比例为铺满全屏
-        preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
-        _previewLayer = preview;
+//        //通过AVCaptureSession初始化
+//        AVCaptureVideoPreviewLayer *preview = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.recordSession];
+//        //设置比例为铺满全屏
+//        preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        _previewLayer = (AVCaptureVideoPreviewLayer *)self.recordView.layer;
+        _previewLayer.session = self.recordSession;
     }
     return _previewLayer;
+}
+
+- (void)setRecordView:(UIView *)recordView{
+
+    _recordView = recordView;
 }
 
 //录制的队列

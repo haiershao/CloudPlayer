@@ -105,6 +105,7 @@ static NSString *XMGMeId = @"me";
     if (indexPath.section == 0) {
         
         XMGRecordViewController *recordVc = [XMGRecordViewController recordViewController];
+        recordVc.view.frame = CGRectMake(0, 0, XMGScreenW, XMGScreenH);
         [self.navigationController pushViewController:recordVc animated:YES];
     }else if (indexPath.section == 1){
     

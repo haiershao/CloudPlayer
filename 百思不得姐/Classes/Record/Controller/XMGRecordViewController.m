@@ -47,16 +47,12 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
     [UIApplication sharedApplication].statusBarHidden = YES;
+    
+    [self.recordEngine startUp];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (_recordEngine == nil) {
-        [self.recordEngine previewLayer].frame = self.view.bounds;
-        [self.view.layer insertSublayer:[self.recordEngine previewLayer] atIndex:0];
-        
-    }
-    [self.recordEngine startUp];
     
 }
 
@@ -69,12 +65,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor orangeColor];
+    if (_recordEngine == nil) {
+        
+        [self adjustSubViewsConstraint:UIDeviceOrientationPortrait];
+        self.recordEngine.recordView = self.view;
+    }
     
     [self setUpSubViews];
 }
 
 - (void)setUpSubViews{
-
+    
     [self.topView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(XMGScreenW));
         make.height.equalTo(@(TopViewHeight));
@@ -96,17 +98,17 @@
     
     UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
     if ( UIDeviceOrientationIsPortrait( deviceOrientation ) || UIDeviceOrientationIsLandscape( deviceOrientation ) ) {
-//        AVCaptureVideoPreviewLayer *previewLayer = (AVCaptureVideoPreviewLayer *)self.previewView.layer;
-//        previewLayer.connection.videoOrientation = (AVCaptureVideoOrientation)deviceOrientation;
+        self.recordEngine.previewLayer.connection.videoOrientation = (AVCaptureVideoOrientation)deviceOrientation;
         [self adjustSubViewsConstraint:deviceOrientation];
     }
 }
 
 - (void)adjustSubViewsConstraint:(UIDeviceOrientation )orientation{
-    
-    if (orientation ==UIDeviceOrientationPortrait) {
+
+    if (orientation == UIDeviceOrientationPortrait) {
         
-        NSLog(@"UIInterfaceOrientationPortrait");
+        NSLog(@"UIDeviceOrientationPortrait %@ -- %@",NSStringFromCGRect(self.view.frame),NSStringFromCGRect(self.recordEngine.previewLayer.frame));
+        
         [self.topView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@(XMGScreenW));
             make.height.equalTo(@(TopViewHeight));
@@ -121,9 +123,11 @@
             make.left.equalTo(self.bottomView.superview).with.offset(0);
         }];
         
-    }else if (orientation ==UIDeviceOrientationLandscapeRight ){
         
-        NSLog(@"UIDeviceOrientationLandscapeRight:%f -- %f ",XMGScreenW, XMGScreenH);
+    }else if (orientation == UIDeviceOrientationLandscapeRight ){
+
+        NSLog(@"UIDeviceOrientationLandscapeRight %@ -- %@",NSStringFromCGRect(self.view.frame),NSStringFromCGRect(self.recordEngine.previewLayer.frame));
+        
         [self.topView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@(TopViewHeight));
             make.height.equalTo(@(XMGScreenW));
@@ -139,8 +143,9 @@
         }];
         
     }else if(orientation ==UIDeviceOrientationLandscapeLeft){
+      
+        NSLog(@"UIDeviceOrientationLandscapeLeft %@ -- %@",NSStringFromCGRect(self.view.frame),NSStringFromCGRect(self.recordEngine.previewLayer.frame));
         
-        NSLog(@"UIDeviceOrientationLandscapeLeft:%f -- %f ",XMGScreenW, XMGScreenH);
         [self.topView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@(TopViewHeight));
             make.height.equalTo(@(XMGScreenW));

@@ -180,6 +180,7 @@
 		2EFC81941D2FA51400036D20 /* XMGTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC81931D2FA51400036D20 /* XMGTopicPictureView.m */; };
 		2EFC81961D2FA52400036D20 /* XMGTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EFC81951D2FA52400036D20 /* XMGTopicPictureView.xib */; };
 		63FF27A5A174190A60C9AE93 /* libPods-Cloud Player.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E38B9EFC0C8C664464B5BE /* libPods-Cloud Player.a */; };
+		6C8B6DE41F31B2EB00086669 /* XMGPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8B6DE31F31B2EB00086669 /* XMGPreviewView.m */; };
 		6C9AB5AE1F307DDB00C8ECD3 /* XMGRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9AB5AA1F307DDB00C8ECD3 /* XMGRecordViewController.m */; };
 		6C9AB5AF1F307DDB00C8ECD3 /* XMGRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C9AB5AB1F307DDB00C8ECD3 /* XMGRecordViewController.xib */; };
 		6C9AB5B21F307E9600C8ECD3 /* XMGRecordEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9AB5B11F307E9600C8ECD3 /* XMGRecordEngine.m */; };
@@ -510,6 +511,8 @@
 		2EFC81931D2FA51400036D20 /* XMGTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopicPictureView.m; sourceTree = "<group>"; };
 		2EFC81951D2FA52400036D20 /* XMGTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicPictureView.xib; sourceTree = "<group>"; };
 		32E38B9EFC0C8C664464B5BE /* libPods-Cloud Player.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cloud Player.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C8B6DE21F31B2EB00086669 /* XMGPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPreviewView.h; sourceTree = "<group>"; };
+		6C8B6DE31F31B2EB00086669 /* XMGPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPreviewView.m; sourceTree = "<group>"; };
 		6C9AB5A91F307DDB00C8ECD3 /* XMGRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecordViewController.h; sourceTree = "<group>"; };
 		6C9AB5AA1F307DDB00C8ECD3 /* XMGRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecordViewController.m; sourceTree = "<group>"; };
 		6C9AB5AB1F307DDB00C8ECD3 /* XMGRecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecordViewController.xib; sourceTree = "<group>"; };
@@ -1265,6 +1268,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6C8B6DE11F31B2C200086669 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6C8B6DE21F31B2EB00086669 /* XMGPreviewView.h */,
+				6C8B6DE31F31B2EB00086669 /* XMGPreviewView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6C9AB5A21F3062B800C8ECD3 /* Record */ = {
 			isa = PBXGroup;
 			children = (
@@ -1278,6 +1290,7 @@
 		6C9AB5A81F307DDB00C8ECD3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6C8B6DE11F31B2C200086669 /* View */,
 				6C9AB5A91F307DDB00C8ECD3 /* XMGRecordViewController.h */,
 				6C9AB5AA1F307DDB00C8ECD3 /* XMGRecordViewController.m */,
 				6C9AB5AB1F307DDB00C8ECD3 /* XMGRecordViewController.xib */,
@@ -1635,6 +1648,7 @@
 				2EF3509F1D3CD41D00F005A6 /* XMGTopWindow.m in Sources */,
 				2EBCB08A1D2CAEBB00E31B4F /* XMGVerticalButton.m in Sources */,
 				2E81BDD21E8A0DC40027D6D8 /* ASValuePopUpView.m in Sources */,
+				6C8B6DE41F31B2EB00086669 /* XMGPreviewView.m in Sources */,
 				2EF0B75D1D23C371006808F5 /* XMGTabBarController.m in Sources */,
 				2E01081A1EB987EC004CD852 /* CDPVideoEditor.m in Sources */,
 				2EF1716B1D2F510C00FA9896 /* NSDate+XMGExtension.m in Sources */,

@@ -32,5 +32,5 @@ target 'Cloud Player' do
     pod 'SVProgressHUD'
     pod 'AFNetworking'
     pod 'BabyBluetooth'
-    
+    pod 'GoogleMobileVision/FaceDetector'
 end

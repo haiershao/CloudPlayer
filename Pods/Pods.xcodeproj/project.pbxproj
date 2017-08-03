@@ -283,6 +283,7 @@
 		6B8E59D8C26F34D72EB14F5769D0DFEC /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD76F27B54E3E36F856EAD043F5E691 /* MJRefreshNormalHeader.m */; };
 		6BCA8E714E20EA4A7E978F5279323C39 /* GPUImage3x3TextureSamplingFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FB41F4681241497BB1BADFE44AAC0AF /* GPUImage3x3TextureSamplingFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BE1FCE325DE9A035D417E8FE01181D7 /* ASIHTTPRequestConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C828FA58B5CE3398E313FB05D4EF039 /* ASIHTTPRequestConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C9DC7F51F32BA8A00AAB410 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9DC7F41F32BA8A00AAB410 /* GoogleUtilities.framework */; };
 		6DA24D529EFDD02331B34F40E9345925 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B027BF89B91D1AD7A0573AD8F9D53D6E /* SDWebImagePrefetcher.m */; };
 		6DBD564ED9F8A1C77EBB9DC4FEC52CB1 /* GPUImageMonochromeFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3093CCEAC84F949F5CA52D49CC4E37BD /* GPUImageMonochromeFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E30295EEDAB51C6E626A80446C92C18 /* BabyBluetooth.h in Headers */ = {isa = PBXBuildFile; fileRef = 53966D9D01C2EDCD3FBB8D641CA3497F /* BabyBluetooth.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1111,6 +1112,7 @@
 		6BCB839A1FF3BC8E80665B24B1F97923 /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoStateFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
 		6C59230E7F4C86CB0CC5415E5C0DA6A6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		6C91EE2A692B69D60859CFAB1DD6553B /* POPPropertyAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPPropertyAnimation.h; path = pop/POPPropertyAnimation.h; sourceTree = "<group>"; };
+		6C9DC7F41F32BA8A00AAB410 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
 		6CC6DD63DCE8DD5AC8C41EA3984BFAE1 /* ZFFileModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZFFileModel.h; path = ZFDownload/ZFFileModel.h; sourceTree = "<group>"; };
 		6CF9EB9174A9E46D86B78A12ECD2B766 /* ASICloudFilesCDNRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASICloudFilesCDNRequest.m; path = Classes/CloudFiles/ASICloudFilesCDNRequest.m; sourceTree = "<group>"; };
 		6DAB4A60E0D3131332A1A45D10A4F31F /* GPUImageKuwaharaRadius3Filter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPUImageKuwaharaRadius3Filter.m; path = framework/Source/GPUImageKuwaharaRadius3Filter.m; sourceTree = "<group>"; };
@@ -1652,6 +1654,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C9DC7F51F32BA8A00AAB410 /* GoogleUtilities.framework in Frameworks */,
 				CBCCEAD402645565401CA93924736979 /* CoreGraphics.framework in Frameworks */,
 				0214246CCB1FF7182F7222B9CCDF8FCB /* Foundation.framework in Frameworks */,
 				F8DCA6C3C05A59B2C95A1B5F1CBD8C99 /* MobileCoreServices.framework in Frameworks */,
@@ -2093,6 +2096,7 @@
 		1DDFEA62D7D19E764F8EEE12663B354B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				6C9DC7F11F32BA8A00AAB410 /* GoogleUtilities */,
 				EAA759EE68ADFBFA4520F92287778103 /* AFNetworking */,
 				F4E774F13ACBC8FF459CDBE7D0AE3EFB /* ASIHTTPRequest */,
 				47B40AA8142B4B5AEF98C2794B9C3F0C /* BabyBluetooth */,
@@ -2344,6 +2348,30 @@
 				66B77D4137A3ED6F5BB75DE1E7D97E4E /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C9DC7F11F32BA8A00AAB410 /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				6C9DC7F21F32BA8A00AAB410 /* Frameworks */,
+			);
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		6C9DC7F21F32BA8A00AAB410 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C9DC7F31F32BA8A00AAB410 /* frameworks */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C9DC7F31F32BA8A00AAB410 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C9DC7F41F32BA8A00AAB410 /* GoogleUtilities.framework */,
+			);
+			path = frameworks;
 			sourceTree = "<group>";
 		};
 		705A852BD9C6BB9F254DD3A623764FFB /* ZFDownload */ = {
@@ -4623,6 +4651,13 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleMobileVision/Detector/Frameworks/frameworks",
+					"$(PROJECT_DIR)/GoogleMobileVision/FaceDetector/Frameworks/frameworks",
+					"$(PROJECT_DIR)/GoogleNetworkingUtilities/Frameworks/frameworks",
+					"$(PROJECT_DIR)/GoogleUtilities/Frameworks/frameworks",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -4947,6 +4982,13 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleMobileVision/Detector/Frameworks/frameworks",
+					"$(PROJECT_DIR)/GoogleMobileVision/FaceDetector/Frameworks/frameworks",
+					"$(PROJECT_DIR)/GoogleNetworkingUtilities/Frameworks/frameworks",
+					"$(PROJECT_DIR)/GoogleUtilities/Frameworks/frameworks",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

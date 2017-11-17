@@ -35,3 +35,8 @@ NSString * const XMGSelectedControllerKey = @"XMGSelectedControllerKey";
 
 /** 标签-间距 */
 CGFloat const XMGTagMargin = 5;
+
+NSString *const XMGDone = @"取消";
+NSString *const XMGEdit = @"选择";
+NSString *const XMGSelect = @"选择";
+NSString *const XMGCancelSelect = @"取消选择";

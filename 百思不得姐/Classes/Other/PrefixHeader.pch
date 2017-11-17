@@ -51,5 +51,5 @@
 #define blockSelf(self) __weak __block typeof(self) weakSelf = self
 //是否为iOS8及以上系统
 #define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
-
+#define kiPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 #endif 

@@ -8,6 +8,7 @@
 
 #import "XMGRecordViewController.h"
 #import "XMGRecordEngine.h"
+#import "XMGAlbumViewController.h"
 
 #define TopViewHeight 60
 @interface XMGRecordViewController ()
@@ -114,7 +115,12 @@
 }
 
 - (void)albumBtnClick:(UIButton *)sender{
-    
+    XMGAlbumViewController *albumVc = [XMGAlbumViewController albumViewController];
+    albumVc.view.lh_Width = XMGScreenW;
+    albumVc.view.lh_Height = XMGScreenH;
+    albumVc.view.lh_X = 0;
+    albumVc.view.lh_Y = 0;
+    [self.navigationController pushViewController:albumVc animated:YES];
 }
 
 - (void)photoBtnClick:(UIButton *)sender{

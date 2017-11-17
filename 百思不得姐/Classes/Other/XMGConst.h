@@ -42,3 +42,8 @@ UIKIT_EXTERN NSString * const XMGSelectedControllerIndexKey;
 UIKIT_EXTERN NSString * const XMGSelectedControllerKey;
 /** 标签-间距 */
 UIKIT_EXTERN CGFloat const XMGTagMargin;
+
+UIKIT_EXTERN NSString *const XMGDone;
+UIKIT_EXTERN NSString *const XMGEdit;
+UIKIT_EXTERN NSString *const XMGSelect;
+UIKIT_EXTERN NSString *const XMGCancelSelect;

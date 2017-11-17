@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIView   *topView;
 @property (weak, nonatomic) IBOutlet UIView   *bottomView;
 @property (strong, nonatomic) XMGRecordEngine *recordEngine;
+@property (weak, nonatomic) UIButton  *photoBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *testImageView;
 @end
 
 @implementation XMGRecordViewController
@@ -75,7 +77,8 @@
 }
 
 - (void)setUpSubViews{
-    
+    self.topView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    self.bottomView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
     [self.topView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(XMGScreenW));
         make.height.equalTo(@(TopViewHeight));
@@ -89,6 +92,40 @@
         make.bottom.equalTo(self.bottomView.superview).with.offset(0);
         make.left.equalTo(self.bottomView.superview).with.offset(0);
     }];
+    
+    UIButton *photoBtn = [[UIButton alloc] init];
+    self.photoBtn = photoBtn;
+    photoBtn.backgroundColor = [UIColor greenColor];
+    photoBtn.lh_Width = 60;
+    photoBtn.lh_Height = photoBtn.lh_Width;
+    photoBtn.lh_X = 0.5*(XMGScreenW-photoBtn.lh_Width);
+    photoBtn.lh_Y = 0;
+    [photoBtn addTarget:self action:@selector(photoBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.bottomView addSubview:photoBtn];
+    
+    UIButton *albumBtn = [[UIButton alloc] init];
+    albumBtn.backgroundColor = [UIColor grayColor];
+    albumBtn.lh_Width = 40;
+    albumBtn.lh_Height = albumBtn.lh_Width;
+    albumBtn.lh_X = 10;
+    albumBtn.lh_Y = 10;
+    [albumBtn addTarget:self action:@selector(albumBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.bottomView addSubview:albumBtn];
+}
+
+- (void)albumBtnClick:(UIButton *)sender{
+    
+}
+
+- (void)photoBtnClick:(UIButton *)sender{
+    blockSelf(self);
+    [self.recordEngine snapStillImage:^(NSData *imageData) {
+        UIImage *img = [[UIImage alloc] initWithData:imageData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.testImageView.image = img;
+        });
+    }];
+    
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator

@@ -180,6 +180,9 @@
 		2EFC81941D2FA51400036D20 /* XMGTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC81931D2FA51400036D20 /* XMGTopicPictureView.m */; };
 		2EFC81961D2FA52400036D20 /* XMGTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EFC81951D2FA52400036D20 /* XMGTopicPictureView.xib */; };
 		63FF27A5A174190A60C9AE93 /* libPods-Cloud Player.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E38B9EFC0C8C664464B5BE /* libPods-Cloud Player.a */; };
+		6C573EF31FBEDE6600BD19D6 /* FileOperationManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C573EF21FBEDE6600BD19D6 /* FileOperationManger.m */; };
+		6C573EF61FBEDEB800BD19D6 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C573EF51FBEDEB800BD19D6 /* NSString+Hash.m */; };
+		6C573EFA1FBEEEC800BD19D6 /* XMGGyroTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C573EF91FBEEEC800BD19D6 /* XMGGyroTool.m */; };
 		6C8B6DE61F31C29A00086669 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DE51F31C29A00086669 /* QuartzCore.framework */; };
 		6C8B6DE81F31C2A600086669 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DE71F31C2A600086669 /* CoreImage.framework */; };
 		6C8B6DEA1F31C2B300086669 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DE91F31C2B300086669 /* CoreAudio.framework */; };
@@ -384,10 +387,10 @@
 		2E5A7DA01D236BA200170E26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E5A7DA51D236BA200170E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E5A7DAA1D236BA200170E26 /* Cloud PlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cloud PlayerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E5A7DAE1D236BA300170E26 /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _____Tests.m; sourceTree = "<group>"; };
+		2E5A7DAE1D236BA300170E26 /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____Tests.m"; sourceTree = "<group>"; };
 		2E5A7DB01D236BA300170E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E5A7DB51D236BA300170E26 /* Cloud PlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cloud PlayerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E5A7DB91D236BA300170E26 /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _____UITests.m; sourceTree = "<group>"; };
+		2E5A7DB91D236BA300170E26 /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____UITests.m"; sourceTree = "<group>"; };
 		2E5A7DBB1D236BA300170E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E81BDB41E8A0DC40027D6D8 /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
 		2E81BDB51E8A0DC40027D6D8 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
@@ -530,6 +533,12 @@
 		2EFC81931D2FA51400036D20 /* XMGTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopicPictureView.m; sourceTree = "<group>"; };
 		2EFC81951D2FA52400036D20 /* XMGTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicPictureView.xib; sourceTree = "<group>"; };
 		32E38B9EFC0C8C664464B5BE /* libPods-Cloud Player.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cloud Player.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C573EF11FBEDE6600BD19D6 /* FileOperationManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileOperationManger.h; sourceTree = "<group>"; };
+		6C573EF21FBEDE6600BD19D6 /* FileOperationManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileOperationManger.m; sourceTree = "<group>"; };
+		6C573EF41FBEDEB800BD19D6 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		6C573EF51FBEDEB800BD19D6 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		6C573EF81FBEEEC800BD19D6 /* XMGGyroTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMGGyroTool.h; sourceTree = "<group>"; };
+		6C573EF91FBEEEC800BD19D6 /* XMGGyroTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMGGyroTool.m; sourceTree = "<group>"; };
 		6C8B6DE51F31C29A00086669 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6C8B6DE71F31C2A600086669 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		6C8B6DE91F31C2B300086669 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -884,6 +893,8 @@
 		2E81BDB21E8A0D9C0027D6D8 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				6C573EF71FBEEEA700BD19D6 /* Tool */,
+				6C573EEF1FBEDDE200BD19D6 /* FileOperationManger */,
 				6CE7FA181F31D09F00583021 /* Panorama */,
 				2E0108201EB9AEF7004CD852 /* LHVideoRangeSlider */,
 				2E0108121EB987EC004CD852 /* CDPVideoRecord */,
@@ -1325,6 +1336,26 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6C573EEF1FBEDDE200BD19D6 /* FileOperationManger */ = {
+			isa = PBXGroup;
+			children = (
+				6C573EF41FBEDEB800BD19D6 /* NSString+Hash.h */,
+				6C573EF51FBEDEB800BD19D6 /* NSString+Hash.m */,
+				6C573EF11FBEDE6600BD19D6 /* FileOperationManger.h */,
+				6C573EF21FBEDE6600BD19D6 /* FileOperationManger.m */,
+			);
+			path = FileOperationManger;
+			sourceTree = "<group>";
+		};
+		6C573EF71FBEEEA700BD19D6 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				6C573EF81FBEEEC800BD19D6 /* XMGGyroTool.h */,
+				6C573EF91FBEEEC800BD19D6 /* XMGGyroTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		6C8B6E241F31CAB300086669 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1672,6 +1703,7 @@
 				2EFB66D51D2B885D006174F3 /* XMGRecommendTagCell.m in Sources */,
 				2E0108291EB9AEF7004CD852 /* LHResizibleBubble.m in Sources */,
 				2EF88D0D1D41BDFF00046D37 /* XMGPublishViewController.m in Sources */,
+				6C573EF31FBEDE6600BD19D6 /* FileOperationManger.m in Sources */,
 				2EFB66D11D2B8560006174F3 /* XMGRecommendTagsViewController.m in Sources */,
 				2EFC81911D2F70FA00036D20 /* XMGTopicViewController.m in Sources */,
 				2E03176A1E8A3E3E005DA961 /* LHSliderMoveView.m in Sources */,
@@ -1710,6 +1742,7 @@
 				2E1129C11D373BA5002BCAE2 /* XMGComment.m in Sources */,
 				2E04A6431E8F45080054A4B1 /* TZImageManager.m in Sources */,
 				2E81BDDA1E8A0DC40027D6D8 /* MMMaterialDesignSpinner.m in Sources */,
+				6C573EFA1FBEEEC800BD19D6 /* XMGGyroTool.m in Sources */,
 				2EF0B75C1D23C371006808F5 /* UIView+XMGExtension.m in Sources */,
 				2EAF95751EA89473007C93F9 /* GHHImageItem.m in Sources */,
 				2E81BDD51E8A0DC40027D6D8 /* UIImageView+ZFCache.m in Sources */,
@@ -1776,6 +1809,7 @@
 				2ED23EE91E8E4A8300D3B4D1 /* LxGridViewFlowLayout.m in Sources */,
 				2EF0B75B1D23C371006808F5 /* UIBarButtonItem+XMGEXtension.m in Sources */,
 				2E0038BE1D3F21CF00DEB02F /* UIImage+XMGExtension.m in Sources */,
+				6C573EF61FBEDEB800BD19D6 /* NSString+Hash.m in Sources */,
 				2E0224F61E8B7ED500A82632 /* SASliderRight.m in Sources */,
 				6C9AB5B51F30828A00C8ECD3 /* XMGRecordEncoder.m in Sources */,
 				6C8B6E271F31CAB300086669 /* XMGPreviewView.m in Sources */,

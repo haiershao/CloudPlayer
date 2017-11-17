@@ -25,4 +25,7 @@
 - (void) startCapture;
 //停止录制
 - (void) stopCaptureHandler:(void (^)(UIImage *movieImage))handler;
+
+//拍照
+- (void)snapStillImage:(void (^)(NSData *imageData))completion;
 @end

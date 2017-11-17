@@ -30,7 +30,10 @@
 @property (strong, nonatomic) AVCaptureConnection        *videoConnection;//视频录制连接
 @property (strong, nonatomic) AVCaptureVideoDataOutput   *videoOutput;//视频输出
 @property (strong, nonatomic) AVCaptureAudioDataOutput   *audioOutput;//音频输出
+@property (nonatomic, strong) AVCaptureStillImageOutput *stillImageOutput;//照片输出
+@property (nonatomic, assign) AVCaptureFlashMode currentFlashMode;//闪光灯
 @property (atomic, assign) BOOL isCapturing;//正在录制
+@property (nonatomic, assign) BOOL isFront;
 @end
 
 @implementation XMGRecordEngine
@@ -51,7 +54,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        
+        self.isFront = NO;
     }
     return self;
 }
@@ -146,6 +149,13 @@
         if ([_recordSession canAddOutput:self.audioOutput]) {
             [_recordSession addOutput:self.audioOutput];
         }
+        
+        //添加拍照输出
+        if ([_recordSession canAddOutput:self.stillImageOutput]){
+            
+            [_recordSession addOutput:self.stillImageOutput];
+        }
+        
         //设置视频录制的方向
 //        UIInterfaceOrientation statusBarOrientation = [UIApplication sharedApplication].statusBarOrientation;
 //        AVCaptureVideoOrientation initialVideoOrientation = AVCaptureVideoOrientationPortrait;
@@ -155,6 +165,14 @@
 //        self.videoConnection.videoOrientation = AVCaptureVideoOrientationPortrait;
     }
     return _recordSession;
+}
+
+- (AVCaptureStillImageOutput *)stillImageOutput{
+    if (!_stillImageOutput) {
+        _stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+        [_stillImageOutput setOutputSettings:@{AVVideoCodecKey : AVVideoCodecJPEG}];
+    }
+    return _stillImageOutput;
 }
 
 //后置摄像头输入
@@ -243,11 +261,6 @@
     return _previewLayer;
 }
 
-- (void)setRecordView:(UIView *)recordView{
-
-    _recordView = recordView;
-}
-
 //录制的队列
 - (dispatch_queue_t)captureQueue {
     if (_captureQueue == nil) {
@@ -280,6 +293,17 @@
     return nil;
 }
 
+- (void)setRecordView:(UIView *)recordView{
+    
+    _recordView = recordView;
+}
+
+- (void)setCurrentFlashMode:(AVCaptureFlashMode)currentFlashMode{
+    
+    _currentFlashMode = currentFlashMode;
+}
+
+
 #pragma mark - 写入数据
 - (void) captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
     BOOL isVideo = YES;
@@ -305,6 +329,91 @@
     // 进行数据编码
     [self.recordEncoder encodeFrame:sampleBuffer isVideo:isVideo];
     CFRelease(sampleBuffer);
+    }
+}
+
+#pragma mark - 拍照
+- (void)snapStillImage:(void (^)(NSData *imageData))completion
+{
+    
+    if (_isFront) {
+        [self setFlashMode:self.currentFlashMode forDevice:[[self frontCameraInput] device]];
+    }else{
+        
+        [self setFlashMode:self.currentFlashMode forDevice:[[self backCameraInput] device]];
+    }
+    
+    
+    AVCaptureConnection *videoConnection = [self.stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
+    UIDeviceOrientation orientation = [[XMGGyroTool shareGyro] deviceOrientation];
+    //    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    if (orientation == UIDeviceOrientationPortrait) {
+        if([videoConnection isVideoOrientationSupported])
+        {
+            
+            [videoConnection setVideoOrientation:AVCaptureVideoOrientationPortrait];
+            
+        }
+    }else if (orientation == UIDeviceOrientationLandscapeLeft) {
+        
+        if([videoConnection isVideoOrientationSupported])
+        {
+            
+            [videoConnection setVideoOrientation:AVCaptureVideoOrientationLandscapeRight];
+            
+        }
+    }else if (orientation == UIDeviceOrientationLandscapeRight) {
+        if([videoConnection isVideoOrientationSupported])
+        {
+            
+            [videoConnection setVideoOrientation:AVCaptureVideoOrientationLandscapeLeft];
+            
+        }
+        
+    }
+    /**
+     
+     AVCaptureVideoOrientationPortrait           = 1,
+     AVCaptureVideoOrientationPortraitUpsideDown = 2,
+     AVCaptureVideoOrientationLandscapeRight     = 3,
+     AVCaptureVideoOrientationLandscapeLeft
+     */
+    
+    if (!videoConnection) {
+        
+        return;
+    }
+    //    NSLog(@"videoConnection %ld", (long)videoConnection.videoOrientation);
+    [self.stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+        if (imageDataSampleBuffer == NULL) {
+            return;
+        }
+        NSLog(@">>1snapStillImage");
+        NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+        //下面这段注释imageDataSampleBuffer字典信息
+        //        CFDictionaryRef metadata = CMCopyDictionaryOfAttachments(NULL, imageDataSampleBuffer, kCMAttachmentMode_ShouldPropagate);
+        //        NSMutableDictionary *meta = [[NSMutableDictionary alloc] initWithDictionary:(__bridge NSDictionary *)(metadata)];
+        //
+        //        CFRelease(metadata);
+        
+        completion(imageData);
+    }];
+}
+
+- (void)setFlashMode:(AVCaptureFlashMode)flashMode forDevice:(AVCaptureDevice *)device
+{
+    if ([device hasFlash] && [device isFlashModeSupported:flashMode])
+    {
+        NSError *error = nil;
+        if ([device lockForConfiguration:&error])
+        {
+            [device setFlashMode:flashMode];
+            [device unlockForConfiguration];
+        }
+        else
+        {
+            NSLog(@"%@", error);
+        }
     }
 }
 

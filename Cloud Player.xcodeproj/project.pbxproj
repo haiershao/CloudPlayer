@@ -180,6 +180,9 @@
 		2EFC81941D2FA51400036D20 /* XMGTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC81931D2FA51400036D20 /* XMGTopicPictureView.m */; };
 		2EFC81961D2FA52400036D20 /* XMGTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EFC81951D2FA52400036D20 /* XMGTopicPictureView.xib */; };
 		63FF27A5A174190A60C9AE93 /* libPods-Cloud Player.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E38B9EFC0C8C664464B5BE /* libPods-Cloud Player.a */; };
+		6C573EF31FBEDE6600BD19D6 /* FileOperationManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C573EF21FBEDE6600BD19D6 /* FileOperationManger.m */; };
+		6C573EF61FBEDEB800BD19D6 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C573EF51FBEDEB800BD19D6 /* NSString+Hash.m */; };
+		6C573EFA1FBEEEC800BD19D6 /* XMGGyroTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C573EF91FBEEEC800BD19D6 /* XMGGyroTool.m */; };
 		6C8B6DE61F31C29A00086669 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DE51F31C29A00086669 /* QuartzCore.framework */; };
 		6C8B6DE81F31C2A600086669 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DE71F31C2A600086669 /* CoreImage.framework */; };
 		6C8B6DEA1F31C2B300086669 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8B6DE91F31C2B300086669 /* CoreAudio.framework */; };
@@ -197,6 +200,12 @@
 		6C9AB5AF1F307DDB00C8ECD3 /* XMGRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C9AB5AB1F307DDB00C8ECD3 /* XMGRecordViewController.xib */; };
 		6C9AB5B21F307E9600C8ECD3 /* XMGRecordEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9AB5B11F307E9600C8ECD3 /* XMGRecordEngine.m */; };
 		6C9AB5B51F30828A00C8ECD3 /* XMGRecordEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9AB5B41F30828A00C8ECD3 /* XMGRecordEncoder.m */; };
+		6CC1B1F91FBEFB2700A2F647 /* XMGAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1B1F71FBEFB2700A2F647 /* XMGAlbumViewController.m */; };
+		6CC1B1FA1FBEFB2700A2F647 /* XMGAlbumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC1B1F81FBEFB2700A2F647 /* XMGAlbumViewController.xib */; };
+		6CC1B1FE1FBEFBA500A2F647 /* XMGPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1B1FC1FBEFBA500A2F647 /* XMGPhotoViewController.m */; };
+		6CC1B1FF1FBEFBA500A2F647 /* XMGPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC1B1FD1FBEFBA500A2F647 /* XMGPhotoViewController.xib */; };
+		6CC1B2031FBEFBFF00A2F647 /* XMGVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1B2011FBEFBFF00A2F647 /* XMGVideoViewController.m */; };
+		6CC1B2041FBEFBFF00A2F647 /* XMGVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC1B2021FBEFBFF00A2F647 /* XMGVideoViewController.xib */; };
 		6CE7F9D51F31CC7C00583021 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE7F9D41F31CC7C00583021 /* opencv2.framework */; };
 		6CE7FA161F31CDC400583021 /* XMGPanoramaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7FA141F31CDC400583021 /* XMGPanoramaViewController.m */; };
 		6CE7FA171F31CDC400583021 /* XMGPanoramaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CE7FA151F31CDC400583021 /* XMGPanoramaViewController.xib */; };
@@ -530,6 +539,12 @@
 		2EFC81931D2FA51400036D20 /* XMGTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopicPictureView.m; sourceTree = "<group>"; };
 		2EFC81951D2FA52400036D20 /* XMGTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicPictureView.xib; sourceTree = "<group>"; };
 		32E38B9EFC0C8C664464B5BE /* libPods-Cloud Player.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cloud Player.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C573EF11FBEDE6600BD19D6 /* FileOperationManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileOperationManger.h; sourceTree = "<group>"; };
+		6C573EF21FBEDE6600BD19D6 /* FileOperationManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileOperationManger.m; sourceTree = "<group>"; };
+		6C573EF41FBEDEB800BD19D6 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		6C573EF51FBEDEB800BD19D6 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		6C573EF81FBEEEC800BD19D6 /* XMGGyroTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMGGyroTool.h; sourceTree = "<group>"; };
+		6C573EF91FBEEEC800BD19D6 /* XMGGyroTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMGGyroTool.m; sourceTree = "<group>"; };
 		6C8B6DE51F31C29A00086669 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6C8B6DE71F31C2A600086669 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		6C8B6DE91F31C2B300086669 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -551,6 +566,15 @@
 		6C9AB5B11F307E9600C8ECD3 /* XMGRecordEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecordEngine.m; sourceTree = "<group>"; };
 		6C9AB5B31F30828A00C8ECD3 /* XMGRecordEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecordEncoder.h; sourceTree = "<group>"; };
 		6C9AB5B41F30828A00C8ECD3 /* XMGRecordEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecordEncoder.m; sourceTree = "<group>"; };
+		6CC1B1F61FBEFB2700A2F647 /* XMGAlbumViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMGAlbumViewController.h; sourceTree = "<group>"; };
+		6CC1B1F71FBEFB2700A2F647 /* XMGAlbumViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMGAlbumViewController.m; sourceTree = "<group>"; };
+		6CC1B1F81FBEFB2700A2F647 /* XMGAlbumViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XMGAlbumViewController.xib; sourceTree = "<group>"; };
+		6CC1B1FB1FBEFBA500A2F647 /* XMGPhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMGPhotoViewController.h; sourceTree = "<group>"; };
+		6CC1B1FC1FBEFBA500A2F647 /* XMGPhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMGPhotoViewController.m; sourceTree = "<group>"; };
+		6CC1B1FD1FBEFBA500A2F647 /* XMGPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XMGPhotoViewController.xib; sourceTree = "<group>"; };
+		6CC1B2001FBEFBFF00A2F647 /* XMGVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMGVideoViewController.h; sourceTree = "<group>"; };
+		6CC1B2011FBEFBFF00A2F647 /* XMGVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMGVideoViewController.m; sourceTree = "<group>"; };
+		6CC1B2021FBEFBFF00A2F647 /* XMGVideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XMGVideoViewController.xib; sourceTree = "<group>"; };
 		6CE7F9D41F31CC7C00583021 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		6CE7FA131F31CDC400583021 /* XMGPanoramaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPanoramaViewController.h; sourceTree = "<group>"; };
 		6CE7FA141F31CDC400583021 /* XMGPanoramaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPanoramaViewController.m; sourceTree = "<group>"; };
@@ -884,6 +908,8 @@
 		2E81BDB21E8A0D9C0027D6D8 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				6C573EF71FBEEEA700BD19D6 /* Tool */,
+				6C573EEF1FBEDDE200BD19D6 /* FileOperationManger */,
 				6CE7FA181F31D09F00583021 /* Panorama */,
 				2E0108201EB9AEF7004CD852 /* LHVideoRangeSlider */,
 				2E0108121EB987EC004CD852 /* CDPVideoRecord */,
@@ -1325,6 +1351,26 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6C573EEF1FBEDDE200BD19D6 /* FileOperationManger */ = {
+			isa = PBXGroup;
+			children = (
+				6C573EF41FBEDEB800BD19D6 /* NSString+Hash.h */,
+				6C573EF51FBEDEB800BD19D6 /* NSString+Hash.m */,
+				6C573EF11FBEDE6600BD19D6 /* FileOperationManger.h */,
+				6C573EF21FBEDE6600BD19D6 /* FileOperationManger.m */,
+			);
+			path = FileOperationManger;
+			sourceTree = "<group>";
+		};
+		6C573EF71FBEEEA700BD19D6 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				6C573EF81FBEEEC800BD19D6 /* XMGGyroTool.h */,
+				6C573EF91FBEEEC800BD19D6 /* XMGGyroTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		6C8B6E241F31CAB300086669 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1354,6 +1400,15 @@
 				6CE7FA131F31CDC400583021 /* XMGPanoramaViewController.h */,
 				6CE7FA141F31CDC400583021 /* XMGPanoramaViewController.m */,
 				6CE7FA151F31CDC400583021 /* XMGPanoramaViewController.xib */,
+				6CC1B1F61FBEFB2700A2F647 /* XMGAlbumViewController.h */,
+				6CC1B1F71FBEFB2700A2F647 /* XMGAlbumViewController.m */,
+				6CC1B1F81FBEFB2700A2F647 /* XMGAlbumViewController.xib */,
+				6CC1B1FB1FBEFBA500A2F647 /* XMGPhotoViewController.h */,
+				6CC1B1FC1FBEFBA500A2F647 /* XMGPhotoViewController.m */,
+				6CC1B1FD1FBEFBA500A2F647 /* XMGPhotoViewController.xib */,
+				6CC1B2001FBEFBFF00A2F647 /* XMGVideoViewController.h */,
+				6CC1B2011FBEFBFF00A2F647 /* XMGVideoViewController.m */,
+				6CC1B2021FBEFBFF00A2F647 /* XMGVideoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1540,6 +1595,7 @@
 				2E04A6A51E8FAC180054A4B1 /* VideoSendIcon@2x.png in Resources */,
 				2EEEC3371D38E14E00E803C1 /* XMGCommentCell.xib in Resources */,
 				2ED23EE21E8E3DF500D3B4D1 /* XMGPostPictureViewController.xib in Resources */,
+				6CC1B1FA1FBEFB2700A2F647 /* XMGAlbumViewController.xib in Resources */,
 				2E03174D1E8A3B94005DA961 /* CZDownloadViewController.xib in Resources */,
 				2E04A69F1E8FAC180054A4B1 /* qmusic_player_pause_default@2x.png in Resources */,
 				2E04A6A21E8FAC180054A4B1 /* qz_phototlist_shadow@2x.png in Resources */,
@@ -1551,6 +1607,7 @@
 				2E04A6961E8FAC180054A4B1 /* 37x-Checkmark@2x.png in Resources */,
 				2E0317691E8A3E3E005DA961 /* LHMergeVideoController.xib in Resources */,
 				2EFA13A91D2CEBC800DE9502 /* XMGPushGuideView.xib in Resources */,
+				6CC1B1FF1FBEFBA500A2F647 /* XMGPhotoViewController.xib in Resources */,
 				2E02198F1D4098F40029C1E7 /* XMGWebViewController.xib in Resources */,
 				2EFB66D61D2B885D006174F3 /* XMGRecommendTagCell.xib in Resources */,
 				2EF6DC141D3760920055E9FB /* XMGCommentViewController.xib in Resources */,
@@ -1578,6 +1635,7 @@
 				2E04A6441E8F45080054A4B1 /* TZImagePickerController.bundle in Resources */,
 				2EF34DB21D30AE4A00A34973 /* XMGShowPictureViewController.xib in Resources */,
 				2E04A6991E8FAC180054A4B1 /* album_checkbox_blue@2x.png in Resources */,
+				6CC1B2041FBEFBFF00A2F647 /* XMGVideoViewController.xib in Resources */,
 				2EF88D121D41BF3000046D37 /* XMGAddTagToolbar.xib in Resources */,
 				2E04A6A01E8FAC180054A4B1 /* qmusic_player_play_default@2x.png in Resources */,
 			);
@@ -1672,6 +1730,7 @@
 				2EFB66D51D2B885D006174F3 /* XMGRecommendTagCell.m in Sources */,
 				2E0108291EB9AEF7004CD852 /* LHResizibleBubble.m in Sources */,
 				2EF88D0D1D41BDFF00046D37 /* XMGPublishViewController.m in Sources */,
+				6C573EF31FBEDE6600BD19D6 /* FileOperationManger.m in Sources */,
 				2EFB66D11D2B8560006174F3 /* XMGRecommendTagsViewController.m in Sources */,
 				2EFC81911D2F70FA00036D20 /* XMGTopicViewController.m in Sources */,
 				2E03176A1E8A3E3E005DA961 /* LHSliderMoveView.m in Sources */,
@@ -1688,6 +1747,7 @@
 				6C9AB5B21F307E9600C8ECD3 /* XMGRecordEngine.m in Sources */,
 				2E86BCA91D3F864000399188 /* XMGMeCell.m in Sources */,
 				2E04A6941E8FAC180054A4B1 /* HX_VideoManager.m in Sources */,
+				6CC1B2031FBEFBFF00A2F647 /* XMGVideoViewController.m in Sources */,
 				2E0317711E8A3F07005DA961 /* ZFNavigationController.m in Sources */,
 				2E81BDDB1E8A0DC40027D6D8 /* ZFBrightnessView.m in Sources */,
 				2E04A6901E8FAC180054A4B1 /* HX_PhotoPreviewViewCell.m in Sources */,
@@ -1710,6 +1770,7 @@
 				2E1129C11D373BA5002BCAE2 /* XMGComment.m in Sources */,
 				2E04A6431E8F45080054A4B1 /* TZImageManager.m in Sources */,
 				2E81BDDA1E8A0DC40027D6D8 /* MMMaterialDesignSpinner.m in Sources */,
+				6C573EFA1FBEEEC800BD19D6 /* XMGGyroTool.m in Sources */,
 				2EF0B75C1D23C371006808F5 /* UIView+XMGExtension.m in Sources */,
 				2EAF95751EA89473007C93F9 /* GHHImageItem.m in Sources */,
 				2E81BDD51E8A0DC40027D6D8 /* UIImageView+ZFCache.m in Sources */,
@@ -1737,6 +1798,7 @@
 				6CE7FA221F31D09F00583021 /* stitching.cpp in Sources */,
 				2E04A63F1E8F45080054A4B1 /* TZAssetCell.m in Sources */,
 				2EFAA8681D2502D400C12B1D /* XMGRecommendViewController.m in Sources */,
+				6CC1B1FE1FBEFBA500A2F647 /* XMGPhotoViewController.m in Sources */,
 				2EF3509F1D3CD41D00F005A6 /* XMGTopWindow.m in Sources */,
 				6CE7FA241F31D09F00583021 /* UIImage+Rotate.m in Sources */,
 				2EBCB08A1D2CAEBB00E31B4F /* XMGVerticalButton.m in Sources */,
@@ -1776,6 +1838,8 @@
 				2ED23EE91E8E4A8300D3B4D1 /* LxGridViewFlowLayout.m in Sources */,
 				2EF0B75B1D23C371006808F5 /* UIBarButtonItem+XMGEXtension.m in Sources */,
 				2E0038BE1D3F21CF00DEB02F /* UIImage+XMGExtension.m in Sources */,
+				6C573EF61FBEDEB800BD19D6 /* NSString+Hash.m in Sources */,
+				6CC1B1F91FBEFB2700A2F647 /* XMGAlbumViewController.m in Sources */,
 				2E0224F61E8B7ED500A82632 /* SASliderRight.m in Sources */,
 				6C9AB5B51F30828A00C8ECD3 /* XMGRecordEncoder.m in Sources */,
 				6C8B6E271F31CAB300086669 /* XMGPreviewView.m in Sources */,

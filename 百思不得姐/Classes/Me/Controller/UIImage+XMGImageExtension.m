@@ -311,7 +311,7 @@ AVAsset *videoAsset;
     [exporter exportAsynchronouslyWithCompletionHandler:^{
         dispatch_async(dispatch_get_main_queue(), ^{
             //这里是输出视频之后的操作，做你想做的
-            //            [self exportDidFinish:exporter];
+//                        [self exportDidFinish:exporter];
             finish(YES);
         });
     }];

@@ -669,7 +669,7 @@
     [exporter exportAsynchronouslyWithCompletionHandler:^{
         dispatch_async(dispatch_get_main_queue(), ^{
             //这里是输出视频之后的操作，做你想做的
-            //            [self exportDidFinish:exporter];
+//                        [self exportDidFinish:exporter];
             [weakSelf createAlbumPathName:@"视频剪辑大湿" patnMovie:myPathDocs];
         });
     }];
@@ -763,6 +763,7 @@
             AVAssetExportSession *avAssetExportSession = [[AVAssetExportSession alloc] initWithAsset:asset presetName:AVAssetExportPreset640x480];
             [avAssetExportSession setVideoComposition:Composition];
             [avAssetExportSession setOutputURL:[NSURL fileURLWithPath:pathToMovie]];
+            
             avAssetExportSession.outputFileType = AVFileTypeQuickTimeMovie;
             [avAssetExportSession setShouldOptimizeForNetworkUse:YES];
             [avAssetExportSession exportAsynchronouslyWithCompletionHandler:^(void){
